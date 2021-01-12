@@ -1,0 +1,169 @@
+<map proto="1.4.0">
+<name>Thornwood</name>
+<version>1.0.1</version>
+<objective>Capture the enemy's two wools!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="26">Red</team>
+    <team id="blue" color="blue" max="26">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" unbreakable="true">iron sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="3" unbreakable="true" enchantment="dig speed:1">iron axe</item>
+        <item slot="31" unbreakable="true" enchantment="dig speed:1">iron spade</item>
+        <item slot="4" amount="48" damage="1">wood</item>
+        <item slot="5" amount="32">glass</item>
+        <item slot="8" amount="64">golden carrot</item>
+        <leggings unbreakable="true">chainmail leggings</leggings>
+        <potion duration="6" amplifier="255">resistance</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <chestplate color="993333">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <chestplate color="334CB2">leather chestplate</chestplate>
+        <boots color="334CB2">leather boots</boots>
+    </kit>
+    <kit id="obs-kit">
+        <potion duration="9999" amplifier="255">night vision</potion>
+    </kit>
+</kits>
+<spawns>
+    <default kit="obs-kit">
+        <region yaw="-90">
+            <cuboid min="-586,67,22" max="-582,67,27"/>
+        </region>
+    </default>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <cuboid min="-506,11,106" max="-507,11,103" yaw="180"/>
+            <cuboid min="-508,11,104" max="-505,11,105" yaw="180"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <cuboid min="-506,11,-54" max="-507,11,-57" yaw="0"/>
+            <cuboid min="-508,11,-56" max="-505,11,-55" yaw="0"/>
+        </regions>
+    </spawn>
+</spawns>
+<wools>
+    <wool team="red" color="orange" craftable="false" location="-455.5,15,-84.5">
+        <monument>
+            <block>-501.5,12,104.5</block>
+        </monument>
+    </wool>
+    <wool team="red" color="yellow" craftable="false" location="-557.5,15,-84.5">
+        <monument>
+            <block>-511.5,12,104.5</block>
+        </monument>
+    </wool>
+    <wool team="blue" color="purple" craftable="false" location="-455.5,15,133.5">
+        <monument>
+            <block>-501.5,12,-55.5</block>
+        </monument>
+    </wool>
+    <wool team="blue" color="cyan" craftable="false" location="-557.5,15,133.5">
+        <monument>
+            <block>-511.5,12,-55.5</block>
+        </monument>
+    </wool>
+</wools>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <not id="no-void">
+        <void/>
+    </not>
+    <not id="deny-blue-wool-room">
+        <any>
+            <filter id="only-blue"/>
+            <filter id="no-chest"/>
+        </any>
+    </not>
+    <not id="deny-red-wool-room">
+        <any>
+            <filter id="only-red"/>
+            <filter id="no-chest"/>
+        </any>
+    </not>
+    <any id="no-chest">
+        <material>chest</material>
+    </any>
+    <any id="only-iron">
+        <material>iron block</material>
+    </any>
+</filters>
+<regions>
+    <union id="spawns">
+        <rectangle id="red-spawn" min="-488,85" max="-525,118"/>
+        <rectangle id="blue-spawn" min="-488,-36" max="-525,-69"/>
+    </union>
+    <union id="wool-rooms">
+        <union id="blue-wool-rooms"> <!-- Blue defends these -->
+            <rectangle id="orange-woolroom" min="-463,-90" max="-448,-74"/>
+            <rectangle id="yellow-woolroom" min="-565,-74" max="-550,-90"/>
+        </union>
+        <union id="red-wool-rooms"> <!-- Red defends these -->
+            <rectangle id="purple-wool-room" min="-463,123" max="-448,139"/>
+            <rectangle id="cyan-wool-room" min="-550,123" max="-565,139"/>
+        </union>
+    </union>
+    <union id="iron-regen">
+        <cuboid min="-501,16,116" max="-512,9,109"/> <!-- Red's Iron -->
+        <cuboid min="-512,16,-67" max="-501,9,-60"/> <!-- Blue's Iron -->
+    </union>
+    <apply block="only-iron" region="spawns" message="You may not edit the spawn area!"/>
+    <apply block="deny-blue-wool-room" region="blue-wool-rooms"/>
+    <apply block="deny-red-wool-room" region="red-wool-rooms"/>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy team's spawn area!"/>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy team's spawn area!"/>
+    <apply enter="only-blue" region="red-wool-rooms" message="You may not enter your own wool room!"/>
+    <apply enter="only-red" region="blue-wool-rooms" message="You may not enter your own wool room!"/>
+    <apply block-place="no-void" block-break="always" region="everywhere" message="You may not edit the void here!"/>
+</regions>
+<renewables>
+    <renewable rate="2" grow="false" particles="true" sound="true" avoid-entites="true" region="iron-regen">
+        <renew-filter>
+            <material>iron block</material>
+        </renew-filter>
+    </renewable>
+</renewables>
+<kill-rewards>
+    <kill-reward>
+        <item>golden apple</item>
+    </kill-reward>
+    <kill-reward>
+        <item amount="16" damage="1">wood</item>
+    </kill-reward>
+</kill-rewards>
+<toolrepair>
+    <tool>bow</tool>
+    <tool>iron sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron spade</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>arrow</item>
+    <item>golden carrot</item>
+    <item>string</item>
+    <item>redstone</item>
+    <item>seeds</item>
+    <item>wood</item>
+    <item>glass</item>
+    <item>sapling</item>
+</itemremove>
+<maxbuildheight>32</maxbuildheight>
+<timelock>on</timelock>
+</map>

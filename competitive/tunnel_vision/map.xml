@@ -1,0 +1,248 @@
+<map proto="1.4.2">
+<name>Tunnel Vision</name>
+<version>1.0.4</version>
+<objective>Capture the enemy's wools!</objective>
+<authors>
+    <author uuid="e931b4b3-479f-4761-8808-4c4b2ed69b0f" contribution="Layout, Terrain"/> <!-- Mattato -->
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9" contribution="Aesthetics, XML"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+    <contributor uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06" contribution="Feedback"/> <!-- Strangey -->
+</contributors>
+<teams>
+    <team id="red-team" color="dark red" max="8">Red</team>
+    <team id="blue-team" color="blue" max="8">Blue</team>
+</teams>
+<spawns>
+    <default yaw="90">
+        <region>
+            <cuboid min="89.5,45,65.5" max="93.5,45,61.5"/>
+        </region>
+    </default>
+    <spawn team="red-team" kit="red-kit" yaw="0">
+        <region>
+            <cuboid min="41.5,10,-78.5" max="43.5,10,-75.5"/>
+        </region>
+    </spawn>
+    <spawn team="blue-team" kit="blue-kit" yaw="180">
+        <region>
+            <cuboid min="41.5,10,205.5" max="43.5,10,202.5"/>
+        </region>
+    </spawn>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <clear/>
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" enchantment="arrow infinite:1" material="bow"/>
+        <item slot="28" material="arrow"/>
+        <item slot="2" unbreakable="true" enchantment="efficiency:2" material="iron pickaxe"/>
+        <item slot="3" unbreakable="true" material="iron axe"/>
+		<item slot="4" amount="64" material="golden carrot"/>
+		<item slot="5" material="golden apple"/>
+        <item slot="6" amount="64" material="wood"/>
+        <item slot="7" amount="32" material="glass"/>
+        <effect duration="4" amplifier="255">resistance</effect>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <chestplate color="993333" material="leather chestplate"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <chestplate color="334CB2" material="leather chestplate"/>
+    </kit>
+</kits>
+<filters>
+    <team id="only-red">red-team</team>
+    <team id="only-blue">blue-team</team>
+    <not id="void-filter">
+        <void/>
+    </not>
+    <any id="only-iron">
+        <material>iron block</material>
+    </any>
+    <all id="only-red-edit">
+        <team>blue-team</team>
+        <any>
+            <material>web</material>
+            <material>stained glass</material>
+        </any>
+    </all>
+    <all id="only-blue-edit">
+        <team>red-team</team>
+        <any>
+            <material>web</material>
+            <material>stained glass</material>
+        </any>
+    </all>
+	<not id="deny-player-place">
+        <participating/>
+    </not>
+</filters>
+<regions>
+    <union id="spawns">
+        <union id="blue-spawn">
+            <rectangle min="55,188" max="37,210"/>
+        </union>
+        <union id="red-spawn">
+            <rectangle min="55,-61" max="37,-83"/>
+        </union>
+    </union>
+    <union id="woolrooms">
+        <union id="blue-wr">
+            <union id="magenta-wr">
+                <rectangle min="12,182" max="25,197"/>
+                <rectangle min="20,181" max="25,197"/>
+                <rectangle min="22,180" max="25,197"/>
+                <rectangle min="17,181" max="12,197"/>
+                <rectangle min="15,180" max="12,197"/>
+            </union>
+            <union id="lime-wr">
+                <rectangle min="66,136" max="79,121"/>
+                <rectangle min="76,138" max="79,121"/>
+                <rectangle min="74,137" max="79,121"/>
+                <rectangle min="69,138" max="66,121"/>
+                <rectangle min="71,137" max="66,121"/>
+            </union>
+        </union>
+        <union id="red-wr">
+          <union id="orange-wr">
+              <rectangle min="25,-55" max="12,-70"/>
+              <rectangle min="17,-54" max="12,-70"/>
+              <rectangle min="15,-53" max="12,-70"/>
+              <rectangle min="20,-54" max="25,-70"/>
+              <rectangle min="22,-53" max="25,-70"/>
+          </union>
+          <union id="yellow-wr">
+               <rectangle min="79,-9" max="66,6"/>
+               <rectangle min="71,-10" max="66,6"/>
+               <rectangle min="69,-11" max="66,6"/>
+               <rectangle min="76,-11" max="79,6"/>
+               <rectangle min="74,-10" max="79,6"/>
+         </union>
+      </union>
+    </union>
+    <union id="cliffs">
+        <!-- Blue Cliffs -->
+        <cuboid min="27,23,88" max="25,90,91"/>
+        <cuboid min="28,23,89" max="25,90,91"/>
+        <cuboid min="29,21,119" max="25,90,91"/>
+        <cuboid min="28,19,127" max="25,90,91"/>
+        <cuboid min="27,18,132" max="25,90,91"/>
+        <cuboid min="26,17,135" max="25,90,91"/>
+        <!-- Red Cliffs -->
+        <cuboid min="27,23,39" max="25,90,36"/>
+        <cuboid min="28,23,38" max="25,90,36"/>
+        <cuboid min="29,21,8" max="25,90,36"/>
+        <cuboid min="28,19,-0" max="25,90,36"/>
+        <cuboid min="27,18,-5" max="25,90,36"/>
+        <cuboid min="26,17,-8" max="25,90,36"/>
+        <!-- Mid Cliffs -->
+        <cuboid min="26,18,79" max="25,90,68"/>
+        <cuboid min="27,20,79" max="25,90,68"/>
+        <cuboid min="28,21,78" max="25,90,68"/>
+        <cuboid min="29,23,76" max="25,90,68"/>
+        <cuboid min="30,24,73" max="25,90,68"/>
+        <cuboid min="31,25,59" max="25,90,68"/>
+        <cuboid min="30,24,54" max="25,90,68"/>
+        <cuboid min="29,23,51" max="25,90,68"/>
+        <cuboid min="28,21,49" max="25,90,68"/>
+        <cuboid min="27,20,48" max="25,90,68"/>
+        <cuboid min="26,18,48" max="25,90,68"/>
+        <!-- Waterfall Ledges -->
+        <cuboid min="26,21,39" max="25,90,48"/>
+        <cuboid min="25,21,88" max="26,90,79"/>
+    </union>
+    <union id="mid-bridges">
+      <union id="low-bridge">
+          <cuboid min="25,10,66" max="40,7,61"/>
+      </union>
+      <union id="up-bridge">
+          <cuboid min="55,22,65" max="31,28,62"/>
+      </union>
+    </union>
+    <union id="low-lane-height">
+      <cuboid min="32,30,-100" max="110,80,225"/>
+    </union>
+    <apply block="always" region="cliffs"/>
+    <apply block-break="only-iron" block-place="deny-player-place" region="spawns" message="You may not edit this area!"/>
+    <apply use="only-red" region="red-spawn"/>
+    <apply use="only-blue" region="blue-spawn"/>
+    <apply block="only-blue-edit" region="blue-wr" message="You may not edit the wool rooms!"/>
+    <apply block="only-red-edit" region="red-wr" message="You may not edit the wool rooms!"/>
+    <apply enter="only-red" region="blue-wr" message="You may not enter your own woolroom!"/>
+    <apply enter="only-blue" region="red-wr" message="You may not enter your own woolroom!"/>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy's spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy's spawn!"/>
+    <apply block="never" region="mid-bridges" message="You may not edit the mid bridges!"/>
+    <apply block-place="never" region="low-lane-height" message="You have reached the height limit for the lower lane!"/>
+    <apply block-place="void-filter" block-break="always" region="everywhere" message="You may not edit the void!"/>
+</regions>
+<renewables>
+    <renewable rate="6" grow="true" particles="true" sound="true" avoid-players="3">
+        <region>
+            <rectangle min="55,188" max="37,210"/>
+        </region>
+        <region>
+            <rectangle min="55,-61" max="37,-83"/>
+        </region>
+        <renew-filter>
+            <any>
+                <material>iron block</material>
+            </any>
+        </renew-filter>
+    </renewable>
+</renewables>
+<kill-rewards>
+    <kill-reward>
+        <item amount="16">wood</item>
+    </kill-reward>
+	<kill-reward>
+        <item amount="8">glass</item>
+    </kill-reward>
+    <kill-reward>
+        <item>golden apple</item>
+    </kill-reward>
+    <kill-reward>
+        <item amount="8">arrow</item>
+    </kill-reward>
+</kill-rewards>
+<itemremove>
+    <item>leather chestplate</item>
+    <item>glass</item>
+    <item>wood</item>
+    <item>golden carrot</item>>
+    <item>string</item>
+    <item>seeds</item>
+    <item>red rose</item>
+	<item>arrow</item>
+</itemremove>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<wools>
+    <wool team="red-team" color="lime" craftable="false" location="72.5,12,128.5">
+        <monument><block>47.5,11,-77.5</block></monument>
+    </wool>
+    <wool team="red-team" color="magenta" craftable="false" location="18.5,24,191.5">
+        <monument><block>47.5,11,-73.5</block></monument>
+    </wool>
+    <wool team="blue-team" color="yellow" craftable="false" location="72.5,12,-1.5">
+        <monument><block>47.5,11,204.5</block></monument>
+    </wool>
+    <wool team="blue-team" color="orange" craftable="false" location="18.5,24,-64.5">
+        <monument><block>47.5,11,200.5</block></monument>
+    </wool>
+</wools>
+<crafting>
+    <disable>boat</disable>
+    <disable>minecart</disable>
+</crafting>
+<maxbuildheight>38</maxbuildheight>
+<gamerules>
+    <doFireTick>false</doFireTick>
+</gamerules>
+<timelock>on</timelock>
+</map>

@@ -1,0 +1,39 @@
+<map proto="1.4.0" game="Kill the King">
+<name>King's Conquest: Easter</name>
+<version>1.0</version>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9" />
+</authors>
+<spawns>
+    <spawn team="red" region="red-spawn" sequential="true" yaw="-90" kit="spawn" />
+    <spawn team="blue" region="blue-spawn" sequential="true" yaw="90" kit="spawn" />
+    <default region="default-spawn" yaw="-180" kit="obs" />
+</spawns>
+<filters>
+    <not id="deny-break">
+        <any>
+            <material>bedrock</material>
+        </any>
+    </not>
+</filters>
+<regions>
+    <block id="red-spawn">-102,14,10</block>
+    <block id="blue-spawn">114,14,10</block>
+    <union id="spawns">
+        <cylinder base="-102,14,10" radius="2" height="3" />
+        <cylinder base="114,14,10" radius="2" height="3" />
+    </union>
+    <block id="default-spawn">6.5,64.5,84.5</block>
+    <sphere id="spawn-deny" center="-29.5,25,-14.5" radius="8" />
+    <above id="build-limit" y="36" />
+    <below id="underground" y="5" />
+    <apply region="spawn-deny" enter="never" />
+    <apply region="build-limit" block="never" message="`7You have reached the maximum build height! (`c30 Blocks`7)" />
+</regions>
+<flags>
+    <post id="red-post">-102,14,10</post>
+    <post id="blue-post">114,14,10</post>
+</flags>
+<timelock>on</timelock>
+<include src="king-classes.xml"/>
+</map>

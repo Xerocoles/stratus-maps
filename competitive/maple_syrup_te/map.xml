@@ -1,0 +1,136 @@
+<map proto="1.3.5">
+<name>Maple Syrup</name>
+<version>2.0.1</version>
+<objective>Control the flag for 200 seconds to win!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+    <author uuid="3a64dcf4-5d71-4664-80bf-4e5c54e41b86"/> <!-- Zaquez -->
+</authors>
+<contributors>
+    <contributor uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+</contributors>
+<teams>
+    <team color="blue" max="7" max-overfill="7">Blue</team>
+    <team color="dark red" max="7" max-overfill="7">Red</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <leggings unbreakable="true">chainmail leggings</leggings>
+        <boots unbreakable="true" enchantment="protection fall:1">iron boots</boots>
+        <item slot="2">golden apple</item>
+        <health>20</health>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <kit name="outside-spawn">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="8" amount="32">arrow</item>
+        <health>20</health>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <kit name="red" parents="outside-spawn" force="true">
+        <helmet color="993333" unbreakable="true">leather helmet</helmet>
+        <chestplate color="993333" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="outside-spawn" force="true">
+        <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
+        <chestplate color="334CB2" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit name="flag" force="true">
+        <potion duration="oo" amplifier="-3">health boost</potion>
+        <potion duration="3" amplifier="2">absorption</potion>
+    </kit>
+    <kit name="reset-health" force="true">
+        <potion duration="1" amplifier="0">health boost</potion>
+        <potion duration="1" amplifier="10">regeneration</potion>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="90">
+        <point>365.5,49,-85.5</point>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="-90">
+        <point>189.5,49,-85.5</point>
+    </spawn>
+    <default yaw="180">
+        <cuboid min="276,35,-29" max="279,35,-32"/>
+    </default>
+</spawns>
+<filters>
+    <filter name="has-flag">
+        <any>
+            <carrying-flag>flag</carrying-flag>
+            <not>
+                <same-team>
+                    <carrying-flag>flag</carrying-flag>
+                </same-team>
+            </not>
+        </any>
+    </filter>
+    <filter name="flag-dam">
+        <not>
+            <carrying-flag>flag</carrying-flag>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <apply enter="has-flag" message="You may not leave spawn while your teammate has the flag!">
+        <union>
+            <cuboid min="354,44,-120" max="349,53,-51"/>
+            <cuboid min="201,44,-51" max="206,53,-120"/>
+        </union>
+    </apply>
+    <apply kit="red">
+        <cuboid min="354,46,-120" max="349,55,-51"/>
+    </apply>
+    <apply kit="blue">
+        <cuboid min="201,46,-51" max="206,55,-120"/>
+    </apply>
+    <apply enter="flag-dam" message="You may not climb the dam while carrying the flag!">
+        <cuboid min="351,18,-56" max="356,40,-115"/>
+        <cuboid min="204,18,-56" max="199,40,-115"/>
+    </apply>
+</regions>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+    <item>leather chestplate</item>
+</itemremove>
+<score>
+    <limit>200</limit>
+    <kills>0</kills>
+    <deaths>0</deaths>
+</score>
+<killreward>
+    <item amount="16">arrow</item>
+    <item>golden apple</item>
+</killreward>
+<flags>
+    <post id="post" return-time="0s" respawn-time="20s">
+        <block>277.5,19,-85.5</block>
+        <block>277.5,27,-119.5</block>
+        <block>277.5,27,-51.5</block>
+    </post>
+    <flag id="flag"
+          name="Flag"
+          color="white"
+          shared="true"
+          post="post"
+          points-rate="1"
+          pickup-kit="flag"
+          drop-kit="reset-health"
+          pickup-filter="allow-all"
+          flag-proximity-metric="closest player"/>
+</flags>
+<respawn blackout="true" delay="5s"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<timelock>on</timelock>
+</map>

@@ -1,0 +1,127 @@
+<map proto="1.4.0">
+<name>Riptide</name>
+<version>1.1.1</version>
+<objective>Capture the opponent's flag as many times as possible in 12 minutes!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+    <author uuid="b8add1ba-8e13-4673-bc73-4e3ed524d40e"/> <!-- Blazy36 -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="7">Red</team>
+    <team id="blue" color="blue" max="7">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <game-mode>adventure</game-mode>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="2" amount="32">arrow</item>
+	    	<leggings unbreakable="true">chainmail leggings</leggings>
+        <boots unbreakable="true" enchantment="protection fall:2">iron boots</boots>
+        <potion duration="7" amplifier="255">resistance</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="993333" unbreakable="true">leather helmet</helmet>
+        <chestplate color="993333" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
+        <chestplate color="334CB2" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit id="red-flag-kit">
+        <potion duration="oo">slowness</potion>
+    </kit>
+    <kit id="blue-flag-kit">
+        <potion duration="oo">slowness</potion>
+    </kit>
+    <kit id="reset-kit" force="true">
+        <potion duration="0" amplifier="10">slowness</potion>
+    </kit>
+</kits>
+<spawns>
+    <default>
+        <regions yaw="90">
+            <cuboid min="122.5,55,-83.5" max="121.5,55,-87.5"/>
+        </regions>
+        <regions yaw="90">
+            <cuboid min="121.5,55,-81.5" max="121.5,55,-89.5"/>
+        </regions>
+    </default>
+    <spawn team="red" kit="red-kit">
+        <regions yaw="180">
+            <cuboid min="66.5,138,-20.5" max="68.5,138,-18.5"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions yaw="0">
+            <cuboid min="68.5,138,-150.5" max="66.5,138,-152.5"/>
+        </regions>
+    </spawn>
+</spawns>
+<filters>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <time id="flag-respawns">0</time>
+</filters>
+<regions>
+    <union id="spawns">
+        <union id="red-spawn">
+            <cuboid min="70,12,-37" max="63,0,-30"/>
+        </union>
+        <union id="blue-spawn">
+            <cuboid min="70,12,-37" max="63,0,-30"/>
+        </union>
+    </union>
+    <union id="dont-climb">
+        <cuboid min="105.5,26,-91.5" max="108,30,-79.5"/>
+    </union>
+    <union id="flag-nets">
+        <union id="red-net">
+            <cuboid min="79,19,-49" max="80,21,-50"/>
+        </union>
+        <union id="blue-net">
+            <cuboid min="79,19,-121" max="80,21,-122"/>
+        </union>
+    </union>
+    <apply enter="never" region="dont-climb" message="You may not climb this waterfall!"/>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the opponent's spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the opponent's spawn!"/>
+    <apply block="never" region="everywhere"/>
+</regions>
+<flags flag-proximity-metric="closest player">
+    <flag id="red-flag" name="Red Flag" owner="red" pickup-kit="red-flag-kit" drop-kit="reset-kit">
+        <post pickup-filter="only-blue" recover-time="20s" respawn-time="10s">79.5,19,-49.5</post>
+    </flag>
+    <flag id="blue-flag" name="Blue Flag" owner="blue" pickup-kit="blue-flag-kit" drop-kit="reset-kit">>
+        <post pickup-filter="only-red" recover-time="20s" respawn-time="10s">79.5,19,-121.5</post>
+    </flag>
+    <flags points="1">
+        <net region="red-net" flag="blue-flag" respawn-filter="flag-respawns"/>
+        <net region="blue-net" flag="red-flag" respawn-filter="flag-respawns"/>
+    </flags>
+</flags>
+<killreward>
+    <item amount="8">arrow</item>
+    <item>golden apple</item>
+</killreward>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<time>12m</time>
+<score>
+    <kills>0</kills>
+    <deaths>0</deaths>
+</score>
+<respawn delay="3s" auto="true" blackout="true"/>
+<timelock>on</timelock>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>

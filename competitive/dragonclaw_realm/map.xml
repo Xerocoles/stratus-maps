@@ -1,0 +1,187 @@
+<map proto="1.4.2">
+<name>Dragonclaw Realm</name>
+<version>1.0</version>
+<objective>Control the flag for 200 seconds to win!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+    <contributor uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+    <contributor uuid="d3814d5a-3d37-42f2-9db8-916846bb70ad"/> <!-- AlmightyBread -->
+    <contributor uuid="3a64dcf4-5d71-4664-80bf-4e5c54e41b86"/> <!-- Zaquez -->
+    <contributor uuid="a63de09d-6fa9-436f-9070-26f5e9a4d27b"/> <!-- dragonrider -->
+</contributors>
+<teams>
+    <team id="red" color="blue" max="7" max-overfill="7">Blue</team>
+    <team id="blue" color="dark red" max="7" max-overfill="7">Red</team>
+</teams>
+<broadcasts>
+    <alert after="5s">Do NOT attempt to climb the cliffs; it will kill you!</alert>
+</broadcasts>
+<kits>
+    <kit id="spawn">
+        <clear/>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="2" amount="64">golden carrot</item>
+        <item slot="3">golden apple</item>
+        <game-mode>adventure</game-mode>
+        <item slot="8" amount="32">arrow</item>
+        <helmet color="4C4C4C" unbreakable="true">leather helmet</helmet>
+        <leggings unbreakable="true">chainmail leggings</leggings>
+        <boots unbreakable="true" enchantment="protection fall:1">iron boots</boots>
+        <effect duration="oo" amplifier="1">night vision</effect>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <chestplate color="993333" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <chestplate color="334CB2" unbreakable="true">leather chestplate</chestplate>
+    </kit>
+    <kit id="flag-kit" force="true">
+        <potion duration="oo" amplifier="-3">health boost</potion>
+        <potion duration="3" amplifier="2">absorption</potion>
+    </kit>
+    <kit id="obs-kit">
+        <effect duration="oo" amplifier="1">night vision</effect>
+    </kit>
+    <kit id="reset-health" force="true">
+        <potion duration="1" amplifier="0">health boost</potion>
+        <potion duration="1" amplifier="10">regeneration</potion>
+    </kit>
+    <kit id="force-kill">
+        <potion duration="1" amplifier="100">harm</potion>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="blue" kit="blue-kit" yaw="-90">
+        <region>
+            <cuboid min="-115,34,3" max="-120,34,-2"/>
+        </region>
+    </spawn>
+    <spawn team="red" kit="red-kit" yaw="90">
+        <region>
+            <cuboid min="110,34,-2" max="115,34,3"/>
+        </region>
+    </spawn>
+    <default kit="obs-kit" yaw="0">
+        <region>
+            <cuboid min="0,46,-60" max="-5,46,-55"/>
+        </region>
+    </default>
+</spawns>
+<filters>
+    <any id="has-flag">
+        <carrying-flag>flag</carrying-flag>
+        <not>
+            <same-team>
+                <carrying-flag>flag</carrying-flag>
+            </same-team>
+        </not>
+    </any>
+</filters>
+<regions>
+    <apply enter="has-flag" message="You may not leave spawn while your teammate has the flag!">
+        <region>
+            <union>
+                <rectangle min="-110,-2" max="-99,2"/>
+                <rectangle min="105,2" max="93,-2"/>
+            </union>
+        </region>
+    </apply>
+  <negative id="kill-zone">
+    <union id="safe-areas">
+      <union id="black-clay">
+          <rectangle min="-33,36" max="27,21"/>
+      </union>
+      <union id="gray-brown-clay">
+          <rectangle min="-40,15" max="-83,-20"/>
+          <rectangle min="-77,-5" max="-90,-19"/>
+          <rectangle min="-92,8" max="-82,-6"/>
+          <rectangle min="-42,1" max="-67,-39"/>
+          <rectangle min="-42,1" max="-73,-36"/>
+          <rectangle min="-42,1" max="-78,-33"/>
+          <rectangle min="-42,1" max="-82,-30"/>
+          <rectangle min="35,15" max="78,-20"/>
+          <rectangle min="72,-5" max="85,-19"/>
+          <rectangle min="87,8" max="77,-6"/>
+          <rectangle min="37,1" max="62,-39"/>
+          <rectangle min="37,1" max="68,-36"/>
+          <rectangle min="37,1" max="73,-33"/>
+          <rectangle min="37,1" max="77,-30"/>
+          <cuboid min="-19,20,40" max="14,24,52"/>
+          <cuboid min="-17,12,36" max="2,17,58"/>
+          <cuboid min="-90,40,9" max="-127,31,-8"/>
+          <cuboid min="85,40,-8" max="121,31,9"/>
+      </union>
+    </union>
+  </negative>
+  <apply velocity="0,1.4,-0.1">
+      <region><cuboid min="17,27,-9" max="14,31,-12"/></region>
+  </apply>
+  <apply velocity="0,1.4,-0.1">
+      <region><cuboid min="-22,27,-9" max="-19,31,-12"/></region>
+  </apply>
+  <apply velocity="0,1.6,-1.75">
+      <region><cuboid min="-1,15,18" max="-4,19,16"/></region>
+  </apply>
+<!--<apply kit="force-kill" region="kill-zone"/>-->
+</regions>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+    <item>arrow</item>
+    <item>golden carrot</item>
+    <item>golden apple</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+</itemkeep>
+<score>
+    <limit>200</limit>
+    <kills>0</kills>
+    <deaths>0</deaths>
+</score>
+<killreward>
+    <item amount="8">arrow</item>
+    <item>golden apple</item>
+</killreward>
+<flags>
+    <post id="post" return-time="0s" respawn-time="20s">
+        <block>-2.5,22,29.5</block>
+        <block>-2.5,43,-32.5</block>
+    </post>
+    <flag id="flag"
+          name="Flag"
+          color="white"
+          shared="true"
+          post="post"
+          points-rate="1"
+          pickup-kit="flag-kit"
+          drop-kit="reset-health"
+          flag-proximity-metric="closest player"/>
+</flags>
+<block-drops>
+    <rule trample="true" kit="force-kill" region="kill-zone">
+        <filter>
+            <any>
+                <material>stained_clay:7</material>
+                <material>stained_clay:12</material>
+                <material>stained_clay:15</material>
+                <material>leaves:1</material>
+            </any>
+        </filter>
+    </rule>
+</block-drops>
+<respawn spectate="true">
+<message>
+{translate:"death.respawn.confirmed.waiting.flagDropped"}
+</message>
+</respawn>
+</map>

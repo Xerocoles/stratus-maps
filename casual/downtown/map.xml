@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<map proto="1.4.0">
+<name>Downtown</name>
+<version>1.1.0</version>
+<objective>Gain 3000 points!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+    <author uuid="510cf71c-0f8a-44b6-87c2-b1ed9c197040"/> <!-- fleuor -->
+</authors>
+<contributors>
+    <contributor uuid="bf331953-4f92-43ee-8abc-7544b8234936" contribution="XML"/> <!-- ViceTechnicolour -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="18">Red</team>
+    <team id="blue" color="blue" max="18">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn" potion-particles="false">
+        <clear/>
+        <chestplate unbreakable="true">chainmail chestplate</chestplate>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="28" amount="24">arrow</item>
+        <item slot="8" amount="32">cooked beef</item>
+        <item slot="2">golden apple</item>
+        <potion duration="5" amplifier="4">heal</potion>
+        <potion duration="5" amplifier="4">damage resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
+        <leggings color="334CB2" unbreakable="true">leather leggings</leggings>
+        <boots color="334CB2" enchantment="feather_falling:1" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="993333" unbreakable="true">leather helmet</helmet>
+        <leggings color="993333" unbreakable="true">leather leggings</leggings>
+        <boots color="993333" enchantment="feather_falling:1" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="obs" potion-particles="false">
+        <potion duration="oo">night vision</potion>
+    </kit>
+</kits>
+<regions>
+    <apply block="never">
+         <everywhere/>
+    </apply>
+    <apply velocity="0,1.2,0.1">
+        <region>
+            <!--<cuboid min="31,14,-5" max="30,15,-5"/> -->
+            <cuboid min="32,15,-4" max="30,16,-5"/>
+        </region>
+    </apply>
+    <apply velocity="0,1.2,-0.1">
+        <region>
+            <!-- <cuboid min="-31,14,5" max="30,15,-5"/> -->
+            <cuboid min="-31,15,5" max="-29,16,6"/>
+        </region>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="blue" kit="blue-kit" yaw="180">
+        <regions>
+            <cylinder base="-45,7,6" radius="2" height="1"/>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit" yaw="0">
+        <regions>
+            <cylinder base="45,7,-6" radius="2" height="1"/>
+        </regions>
+    </spawn>
+    <default kit="obs" yaw="180">
+        <regions>
+            <point>0.5,60,75.5</point>
+        </regions>
+    </default>
+</spawns>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>arrow</item>
+    <item>cooked beef</item>
+    <item>leather helmet</item>
+    <item>chainmail chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>iron chestplate</item>
+    <item>red rose</item>
+    <item>gold sword</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+</itemkeep>
+<killreward>
+    <item amount="1">golden apple</item>
+    <item amount="8">arrow</item>
+</killreward>
+<timelock>on</timelock>
+<king>
+    <hills required="false" permanent="false" capture-time="8s" incremental="true" time-multiplier="0.5">
+        <hill name="Café" points="3.75">
+            <capture>
+                <cylinder height="3" radius="4.5" base="30,10,-32"/>
+            </capture>
+            <progress>
+                <cylinder height="3" radius="4.5" base="30,10,-32"/>
+            </progress>
+            <captured>
+                <cylinder height="3" radius="4.5" base="30,10,-32"/>
+            </captured>
+        </hill>
+        <hill name="Center" points="5.5">
+            <capture>
+                <cylinder height="3" radius="4.5" base="0,22,0"/>
+            </capture>
+            <progress>
+                <cylinder height="3" radius="4.5" base="0,22,0"/>
+            </progress>
+            <captured>
+                <cylinder height="3" radius="4.5" base="0,22,0"/>
+            </captured>
+        </hill>
+        <hill name="Park" points="3.75">
+            <capture>
+                <cylinder height="3" radius="4.5" base="-32,9,36"/>
+            </capture>
+            <progress>
+                <cylinder height="3" radius="4.5" base="-32,9,36"/>
+            </progress>
+            <captured>
+                <cylinder height="3" radius="4.5" base="-32,9,36"/>
+            </captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>3000</limit>
+</score>
+<broadcasts>
+    <tip after="10s" every="2m">Center hill is worth more points than any other hill!</tip>
+</broadcasts>
+</map>

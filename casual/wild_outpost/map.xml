@@ -1,0 +1,140 @@
+<map proto="1.4.2">
+<name>Wild Outpost</name>
+<version>1.0.1</version>
+<objective>Obtain more points by the end of seven minutes!</objective>
+<gamemode>tdm</gamemode>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+	  <contributor uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+</contributors>
+<teams>
+    <team id="green" color="dark green" max="16">Green</team>
+    <team id="yellow" color="yellow" max="16">Yellow</team>
+</teams>
+<spawns>
+    <spawn team="green" kit="green-kit">
+        <region yaw="0">
+            <cuboid min="-215,6.1,-132" max="-216,6.1,-135"/>
+        </region>
+        <region yaw="180">
+            <cuboid min="-216,6.1,-120" max="-215,6.1,-123"/>
+        </region>
+    </spawn>
+    <spawn team="yellow" kit="yellow-kit">
+        <region yaw="0">
+            <cuboid min="-31,6.1,-139" max="-32,6.1,-136"/>
+        </region>
+        <region yaw="180">
+            <cuboid min="-31,6.1,-124" max="-32,6.1,-127"/>
+        </region>
+    </spawn>
+    <default>
+        <region yaw="90">
+          	<cuboid min="-52.5,24,-105.5" max="-55.5,24,-113.5"/>
+  	    </region>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="28" amount="32" material="arrow"/>
+        <item slot="2" amount="64" material="golden carrot"/>
+        <item slot="8" material="golden apple"/>
+        <effect duration="4" amplifier="255">resistance</effect>
+		    <leggings unbreakable="true" material="iron leggings"/>
+    </kit>
+    <kit id="green-kit" parents="spawn">
+        <helmet color="789230" unbreakable="true" material="leather helmet"/>
+        <chestplate color="789230" unbreakable="true" material="leather chestplate"/>
+        <boots color="789230" unbreakable="true" material="leather boots"/>
+    </kit>
+    <kit id="yellow-kit" parents="spawn">
+        <helmet color="E5E533" unbreakable="true" material="leather helmet"/>
+        <chestplate color="E5E533" unbreakable="true" material="leather chestplate"/>
+        <boots color="E5E533" unbreakable="true" material="leather boots"/>
+    </kit>
+    <kit id="heal">
+        <potion duration="3s" amplifier="3">heal</potion>
+        <potion duration="6s">regeneration</potion>
+    </kit>
+</kits>
+<filters>
+    <team id="only-yellow">yellow</team>
+    <team id="only-green">green</team>
+    <all id="trapdoor-no-open">
+        <any>
+            <not>
+                <material>trap door</material>
+            </not>
+        </any>
+    </all>
+</filters>
+<regions>
+    <cuboid id="green-spawn" min="-215,6.1,-132" max="-216,6.1,-135"/>
+    <cuboid id="yellow-spawn" min="-31,6.1,-139" max="-32,6.1,-136"/>
+    <union id="scoreboxes">
+        <union id="green-box">
+            <cuboid min="-50.5,13,-115" max="-49.5,15,-104"/> <!-- Yellow Side, Green Scores -->
+        </union>
+        <union id="yellow-box">
+            <cuboid min="-196.5,13,-144" max="-197.5,15,-155"/> <!-- Green Side, Yellow Scores -->
+        </union>
+    </union>
+    <union id="scoreboxes-resist-enter">
+        <union id="green-box-resist-enter">
+            <cuboid min="-51.5,13,-115" max="-49.5,15,-104"/> <!-- Yellow Side, Green Scores -->
+        </union>
+        <union id="yellow-box-resist-enter">
+            <cuboid min="-195.5,13,-144" max="-197.5,15,-155"/> <!-- Green Side, Yellow Scores -->
+        </union>
+    </union>
+    <apply use="trapdoor-no-open" block="never" region="everywhere"/>
+    <apply enter="only-yellow" region="yellow-box-resist-enter" message="You may not enter your own scorebox!"/>
+    <apply enter="only-green" region="green-box-resist-enter" message="You may not enter your own scorebox!"/>
+    <apply kit="heal" filter="only-yellow" region="yellow-box"/>
+    <apply kit="heal" filter="only-green" region="green-box"/>
+</regions>
+<portals>
+    <portal filter="only-yellow" region="yellow-box" destination="yellow-spawn" yaw="@0"/>
+    <portal filter="only-green" region="green-box" destination="green-spawn" yaw="@0"/>
+</portals>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple"/>
+    </kill-reward>
+    <kill-reward>
+        <item amount="8" material="arrow"/>
+    </kill-reward>
+</kill-rewards>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>iron leggings</item>
+    <item>golden carrot</item>
+</itemremove>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<timelock>on</timelock>
+<score>
+    <kills>1</kills>
+    <deaths>0</deaths>
+    <box points="3" filter="only-green" region="green-box"/>
+    <box points="3" filter="only-yellow" region="yellow-box"/>
+</score>
+<time>7m</time>
+<respawn delay="3s"/>
+</map>

@@ -1,0 +1,139 @@
+<map proto="1.4.0">
+<name>Calico</name>
+<version>1.5.7</version>
+<objective>Reach 1000 points before the opposing team!</objective>
+<gamemode>koth</gamemode>
+<authors>
+    <author uuid= "0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+  	<contributor uuid= "a63de09d-6fa9-436f-9070-26f5e9a4d27b"/> <!-- dragonrider -->
+    <contributor uuid= "621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+    <contributor uuid= "6bec5c3a-4934-4b19-9aa8-c7c569820f7d"/> <!-- Claf -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="7" max-overfill="7">Red</team>
+    <team id="blue" color= "blue" max="7" max-overfill="7">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="3" amount="20" material="arrow"/>
+        <leggings unbreakable="true" enchantment="protection projectile:2" material="chainmail leggings"/>
+        <boots unbreakable="true" enchantment="protection fall:1" material="iron boots"/>
+        <effect duration="5" amplifier="255">resistance</effect>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet unbreakable="true" color="993333" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet unbreakable="true" color="334CB2" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="45">
+        <region>
+            <cuboid min="28.5,40,-30.5" max="30.5,40,-26.5"/>
+        </region>
+        <region>
+            <cuboid min="31.5,40,-27.5" max="27.5,40,-29.5"/>
+        </region>
+    </default>
+    <spawn team="red" kit="red-kit" yaw="180">
+        <region>
+            <cuboid min="24.7,59,48.7" max="22.3,59,46.3"/>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" yaw="-90">
+        <region>
+            <cuboid min="-45.3,59,-23.7" max="-47.7,59,-21.3"/>
+        </region>
+    </spawn>
+</spawns>
+<control-points capture-time="5s" incremental="true" neutral-state="true" show-progress="true" required="false"
+scaled-time="true">
+    <control-point name="Upper Hill" points="1">
+        <capture>
+            <union id="cap-region-up">
+                <cuboid min="16,17,-15" max="23,20,-22"/>
+                <cuboid min="22,17,-23" max="17,20,-14"/>
+			        	<cuboid min="24,17,-21" max="15,20,-16"/>
+            </union>
+        </capture>
+        <progress>
+            <region id="cap-region-up"/>
+        </progress>
+    </control-point>
+    <control-point name="Center Hill" points="1">
+        <capture>
+            <union id="cap-region-mid">
+                <cuboid min="3,10,5" max="-2,12,-4"/>
+                <cuboid min="-3,10,-3" max="4,12,4"/>
+		        		<cuboid min="5,10,3" max="-4,12,-2"/>
+            </union>
+        </capture>
+        <progress>
+            <region id="cap-region-mid"/>
+        </progress>
+    </control-point>
+	 <control-point name="Arch Hill" points="1">
+        <capture>
+            <union id="cap-region-arch">
+                <cuboid min="-26,13,20" max="-19,15,27"/>
+                <cuboid min="-18,13,26" max="-27,15,21"/>
+			        	<cuboid min="-25,13,19" max="-20,15,28"/>
+            </union>
+        </capture>
+        <progress>
+            <region id="cap-region-arch"/>
+        </progress>
+    </control-point>
+</control-points>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+</filters>
+<regions>
+    <union id="jump-pads">
+        <union id="red-jump">
+            <cuboid min="15.8,10,15.8" max="15.2,12.5,15.2"/>
+        </union>
+        <union id="blue-jump">
+            <cuboid min="-14.8,10,-14.8" max="-14.2,12.5,-14.2"/>
+        </union>
+    </union>
+    <apply velocity="0.145,1.6,0" region="red-jump"/>
+    <apply velocity="0,1.6,-0.145" region="blue-jump"/>
+    <apply block="never" region="everywhere"/>
+</regions>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<toolrepair>
+	<tool>stone sword</tool>
+	<tool>bow</tool>
+</toolrepair>
+<kill-rewards>
+    <kill-reward>
+        <item>golden apple</item>
+    </kill-reward>
+	<kill-reward>
+		<item amount="8">arrow</item>
+	</kill-reward>
+</kill-rewards>
+<score>
+    <limit>1000</limit>
+    <king/>
+</score>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<timelock>on</timelock>
+</map>

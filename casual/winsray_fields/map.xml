@@ -1,0 +1,155 @@
+<map proto="1.4.0">
+<name>Winsray Fields</name>
+<version>1.0</version>
+<objective>Destroy the opposing team's monument and core!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="26">Red</team>
+    <team id="blue" color="blue" max="26">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <item slot="0" material="stone sword" unbreakable="true"/>
+        <item slot="1" material="bow" unbreakable="true" enchantment="infinity"/>
+        <item slot="2" material="diamond pickaxe" unbreakeble="true"/>
+        <item slot="3" material="iron axe" unbreakable="true"/>
+        <item slot="4" material="wood" damage="1" amount="64"/>
+        <item slot="5" material="glass" amount="32"/>
+        <item slot="6" material="golden carrot" amount="64"/>
+        <item slot="7" material="golden apple"/>
+        <item slot="8" material="bucket"/>
+        <item slot="28" material="arrow" amount="1"/>
+        <item slot="29" material="iron spade" unbreakable="true" enchantment="efficiency"/>
+        <item slot="30" material="shears" unbreakable="true"/>
+        <potion duration="4s" amplifier="255">resistance</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn-kit">
+        <helmet material="leather helmet" color="993333" unbreakable="true"/>
+        <chestplate material="leather chestplate" color="993333" unbreakable="true"/>
+        <leggings material="chainmail leggings" unbreakable="true"/>
+        <boots material="iron boots" unbreakable="true"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn-kit">
+      <helmet material="leather helmet" color="334CB2" unbreakable="true"/>
+      <chestplate material="leather chestplate" color="334CB2" unbreakable="true"/>
+      <leggings material="chainmail leggings" unbreakable="true"/>
+      <boots material="iron boots" unbreakable="true"/>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <region yaw="180">
+            <point>103.5,13,209.5</point>
+        </region>
+        <region yaw="180">
+            <point>115.5,13,209.5</point>
+        </region>
+        <region yaw="90">
+            <point>124,13,199</point>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <region yaw="0">
+            <point>64.5,13,-46.5</point>
+        </region>
+        <region yaw="0">
+            <point>52.5,13,-46.5</point>
+        </region>
+        <region yaw="-90">
+            <point>44,13,-36</point>
+        </region>
+    </spawn>
+    <default>
+        <region yaw="-90">
+            <cuboid min="10,63,78" max="13,63,85"/>
+        </region>
+    </default>
+</spawns>
+<filters>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <not id="no-void">
+        <void/>
+    </not>
+</filters>
+<regions>
+    <union id="spawns">
+        <union id="red-spawn-area">
+            <rectangle min="114,189" max="129,218"/>
+            <rectangle min="99,193" max="129,218"/>
+            <rectangle min="95,201" max="129,218"/>
+        </union>
+        <union id="blue-spawn-area">
+            <rectangle min="54,-26" max="39,-55"/>
+            <rectangle min="69,-30" max="39,-55"/>
+            <rectangle min="73,-38" max="39,-55"/>
+        </union>
+    </union>
+    <apply block="never" region="spawns" message="You may not edit the spawn!"/>
+    <apply enter="only-blue" region="blue-spawn-area" message="You may not enter the enemy's spawn!"/>
+    <apply enter="only-red" region="red-spawn-area" message="You may not enter the enemy's spawn!"/>
+    <apply block-place="no-void" block-break="always" message="You may not edit the void"/>
+</regions>
+<destroyables name="Monument" materials="gold block" show-percentage="true" completion="100%">
+    <destroyable owner="red">
+        <region>
+            <cuboid min="62,23,193" max="59,19,196"/>
+        </region>
+    </destroyable>
+    <destroyable owner="blue">
+        <region>
+            <cuboid min="109,23,-30" max="106,19,-33"/>
+        </region>
+    </destroyable>
+</destroyables>
+<cores material="obsidian" leak="4">
+    <core team="red">
+        <region>
+            <cuboid min="127,28,157" max="132,23,152"/>
+        </region>
+    </core>
+    <core team="blue">
+        <region>
+            <cuboid min="41,28,11" max="36,23,6"/>
+        </region>
+    </core>
+</cores>
+<kill-reward>
+    <item material="golden apple"/>
+    <item material="wood" damage="1" amount="16"/>
+</kill-reward>
+<itemremove>
+    <item>31</item>
+    <item>seeds</item>
+    <item>golden carrot</item>
+    <item>iron spade</item>
+    <item>shears</item>
+    <item>sapling</item>
+    <item>gold block</item>
+    <item>obsidian</item>
+    <item>bucket</item>
+    <item>water bucket</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+    <item>wood</item>
+    <item>glass</item>
+    <item>golden apple</item>
+    <item>arrow</item>
+    <item>stone sword</item>
+    <item>iron axe</item>
+    <item>bow</item>
+    <item>diamond pickaxe</item>
+</itemremove>
+<toolrepair>
+    <item>stone sword</item>
+    <item>iron axe</item>
+    <item>bow</item>
+    <item>diamond pickaxe</item>
+</toolrepair>
+<timelock>on</timelock>
+<maxbuildheight>40</maxbuildheight>
+</map>
