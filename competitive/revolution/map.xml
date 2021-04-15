@@ -1,11 +1,11 @@
 <map proto="1.4.0">
 <name>Revolution</name>
-<version>1.0.0</version>
+<version>1.0.1</version>
 <objective>Hold the flag for 150 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
-<respawn spectate="true" delay="6s" auto="true">
+<respawn spectate="true" delay="7s" auto="true">
     <message>
         {translate:"death.respawn.confirmed.waiting.flagDropped"}
     </message>
@@ -50,7 +50,7 @@
         <effect duration="oo" amplifier="1">night vision</effect>
         <effect duration="1" amplifier="0">health boost</effect>
         <effect duration="1" amplifier="10">regeneration</effect>
-				<effect duration="6" amplifier="10">resistance</effect>				
+				<effect duration="6" amplifier="10">resistance</effect>
     </kit>
     <kit id="red-spawn" parents="spawn-kit">
         <helmet color="993333" unbreakable="true" locked="true" material="leather helmet"/>
@@ -92,246 +92,246 @@
     <kills>0</kills>
 </score>
 <flags>
-    <flag id="flag" name="Flag" post="post" points-rate="1" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" sequential="true">
+    <flag id="flag" name="Flag" color="white" post="post" points-rate="1" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" sequential="true">
         <post id="n1" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s1" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n2" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s2" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n3" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s3" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n4" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s4" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n5" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s5" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n6" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s6" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n7" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s7" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n8" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s8" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n9" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s9" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n10" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s10" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n11" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s11" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n12" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s12" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n13" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s13" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n14" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s14" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n15" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s15" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n16" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s16" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n17" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s17" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n18" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s18" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n19" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s19" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n20" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s20" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n21" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s21" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n22" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s22" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n23" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s23" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n24" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s24" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n25" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s25" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n26" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s26" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n27" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s27" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n28" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s28" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n29" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s29" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n30" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s30" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n31" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s31" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n32" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s32" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n33" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s33" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n34" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s34" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n35" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s35" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n36" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s36" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n37" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s37" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n38" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s38" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n39" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s39" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
 				<post id="n40" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="s40" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
     </flag>
 </flags>
