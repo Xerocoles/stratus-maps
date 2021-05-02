@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>Revolution</name>
-<version>1.1.0</version>
-<objective>Hold the flag for 150 seconds to win!</objective>
+<version>1.1.2</version>
+<objective>Hold the flag for 200 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
@@ -87,17 +87,17 @@
 	  <item>bow</item>
 </toolrepair>
 <score>
-    <limit>150</limit>
+    <limit>200</limit>
     <deaths>0</deaths>
     <kills>0</kills>
 </score>
 <flags>
     <flag id="flag" name="Flag" color="white" post="post" points-rate="1" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" sequential="false">
         <post id="north-post" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,52.5</block>
+            <block>-67.5,13,53.5</block>
         </post>
 	      <post id="south-post" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,88.5</block>
+            <block>-67.5,13,87.5</block>
         </post>
     </flag>
 </flags>
