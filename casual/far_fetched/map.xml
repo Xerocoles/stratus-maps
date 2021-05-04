@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Far Fetched</name>
-<version>1.2.4</version>
+<version>1.2.5</version>
 <objective>Capture the enemy's three wools!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -9,8 +9,8 @@
     <contributor uuid="0a359aef-794b-4d88-97ca-5672d9421532" contribution="Being a legend"/> <!-- xTrina -->
 </contributors>
 <teams>
-    <team id="red-team" color="dark red" max="36">Red</team>
-    <team id="blue-team" color="blue" max="36">Blue</team>
+    <team id="red-team" color="dark red" max="40">Red</team>
+    <team id="blue-team" color="blue" max="40">Blue</team>
 </teams>
 <spawns>
     <default yaw="90">

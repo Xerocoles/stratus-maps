@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Tranquility</name>
-<version>1.0.0</version>
+<version>1.0.1</version>
 <objective>Capture the enemy's two wools!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -11,6 +11,7 @@
 </teams>
 <kits>
     <kit id="spawn">
+        <clear/>
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true" enchantment="arrow infinite:1">bow</item>
         <item slot="28">arrow</item>
@@ -151,6 +152,9 @@
     <tool>iron spade</tool>
     <tool>iron axe</tool>
 </toolrepair>
+<itemkeep>
+    <item>golden apple</item>
+</itemkeep>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
