@@ -59,7 +59,7 @@
         </region>
     </spawn>
     <spawn team="yellow-team" kit="yellow-kit" yaw="180">
-        <region yaw="180">
+        <region>
             <point>-121.5,6,174.5</point>
         </region>
     </spawn>
