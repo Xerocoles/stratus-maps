@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
 <map proto="1.4.0">
 <name>Bloody Maple</name>
-<version>1.0.1</version>
+<version>1.0.2</version>
 <objective>Be the first team to capture the enemy flag 3 times!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -45,52 +44,52 @@
     </kit>
 </kits>
 <filters>
-	<team id="only-cyan">cyan</team>
-	<team id="only-magenta">magenta</team>
+    <team id="only-cyan">cyan</team>
+    <team id="only-magenta">magenta</team>
 </filters>
 <regions>
     <apply block="never">
         <rectangle min="-oo,-oo" max="oo,oo"/>
-	</apply>
-	<cuboid id="magenta-platform" min="-1.5,11,-22.5" max="2.5,13,-26.5"/>
-	<cuboid id="cyan-platform" min="2.5,11,22.5" max="-1.5,13,26.5"/>
+    </apply>
+    <cuboid id="magenta-platform" min="-1.5,11,-22.5" max="2.5,13,-26.5"/>
+    <cuboid id="cyan-platform" min="2.5,11,22.5" max="-1.5,13,26.5"/>
 </regions>
 <spawns>
     <spawn team="magenta" kit="magenta-kit" yaw="45">
-    	<region>
-        	<point>21.5,7,-29.5</point>
+        <region>
+            <point>21.5,7,-29.5</point>
         </region>
     </spawn>
-	<spawn team="magenta" kit="magenta-kit" yaw="-45">
-		<region>
-			<point>-20.5,7,-29.5</point>
-		</region>
+    <spawn team="magenta" kit="magenta-kit" yaw="-45">
+        <region>
+            <point>-20.5,7,-29.5</point>
+        </region>
     </spawn>
     <spawn team="cyan" kit="cyan-kit" yaw="135">
-    	<region>
-        	<point>21.5,7,29.5</point>
+        <region>
+            <point>21.5,7,29.5</point>
         </region>
     </spawn>
-	<spawn team="cyan" kit="cyan-kit" yaw="-135">
-		<region>
-			<point>-20.5,7,29.5</point>
-		</region>
+    <spawn team="cyan" kit="cyan-kit" yaw="-135">
+        <region>
+            <point>-20.5,7,29.5</point>
+        </region>
     </spawn>
     <default kit="obs" yaw="-90">
-    	<region>
-        	<cylinder base="-37,28,0" radius="2" height="1"/>
+        <region>
+            <cylinder base="-37,28,0" radius="2" height="1"/>
         </region>
     </default>
 </spawns>
 <flags>
-	<flag id="magenta flag" name= "Magenta Flag" owner="magenta" pickup-filter="only-cyan">
-		<post yaw="0" return-time="5s" respawn-speed="5">0.5,11,-24.5</post>
-		<net points="1" region="cyan-platform"/>
-	</flag>
-	<flag id="cyan flag" name="Cyan Flag" owner="cyan" pickup-filter="only-magenta">
-		<post yaw="-180" return-time="5s" respawn-speed="5">0.5,11,24.5</post>
-		<net points="1" region="magenta-platform"/>
-	</flag>
+    <flag id="magenta flag" name= "Magenta Flag" owner="magenta" pickup-filter="only-cyan">
+        <post yaw="0" return-time="5s" respawn-speed="5">0.5,11,-24.5</post>
+        <net points="1" region="cyan-platform"/>
+    </flag>
+    <flag id="cyan flag" name="Cyan Flag" owner="cyan" pickup-filter="only-magenta">
+        <post yaw="-180" return-time="5s" respawn-speed="5">0.5,11,24.5</post>
+        <net points="1" region="magenta-platform"/>
+    </flag>
 </flags>
 <toolrepair>
     <tool>stone sword</tool>

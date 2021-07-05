@@ -1,6 +1,7 @@
 <map proto="1.4.0">
-<name>Jurassic Mini TE</name>
+<name>Jurassic Mini</name>
 <version>1.0.1</version>
+<edition>tournament</edition>
 <objective>Capture the enemy's two wools!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->

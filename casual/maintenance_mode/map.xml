@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Maintenance Mode</name>
-<version>1.0.4</version>
+<version>1.0.5</version>
 <objective>Kill the most people in 5 minutes!</objective>
 <authors>
     <author uuid="069a79f4-44e9-4726-a5be-fca90e38aaf5"/> <!-- Notch -->
@@ -43,35 +43,35 @@
         <effect duration="3" amplifier="2">speed</effect>
     </kill-reward>
     <kill-reward>
-	    	<filter>
-		      	<kill-streak count="2" repeat="true"/>
-	    	</filter>
-	    	<item name="Warpy Boi">ender pearl</item>
+        <filter>
+            <kill-streak count="2" repeat="true"/>
+        </filter>
+        <item name="Warpy Boi">ender pearl</item>
     </kill-reward>
     <kill-reward>
-	    	<filter>
-		      	<kill-streak count="3" repeat="true"/>
-	    	</filter>
-	    	<item name="Explodey Boi">tnt</item>
-	</kill-reward>
+        <filter>
+            <kill-streak count="3" repeat="true"/>
+        </filter>
+        <item name="Explodey Boi">tnt</item>
+        </kill-reward>
     <kill-reward>
-	    	<filter>
-		      	<kill-streak count="4"/>
-	    	</filter>
-	    	<item name="Fiery Boi" enchantment="fire aspect">blaze rod</item>
+        <filter>
+            <kill-streak count="4"/>
+        </filter>
+        <item name="Fiery Boi" enchantment="fire aspect">blaze rod</item>
     </kill-reward>
     <kill-reward>
-	    	<filter>
-		      	<kill-streak count="7"/>
-	    	</filter>
-	    	<item unbreakable="true" name="Proteccy Boi">diamond chestplate</item>
-	</kill-reward>
+        <filter>
+            <kill-streak count="7"/>
+        </filter>
+        <item unbreakable="true" name="Proteccy Boi">diamond chestplate</item>
+    </kill-reward>
     <kill-reward>
-	    	<filter>
-		      	<kill-streak count="10"/>
-	    	</filter>
-	    	<item unbreakable="true" name="LEGENDARY CROWN">gold helmet</item>
-	</kill-reward>
+        <filter>
+            <kill-streak count="10"/>
+        </filter>
+        <item unbreakable="true" name="LEGENDARY CROWN">gold helmet</item>
+    </kill-reward>
 </kill-rewards>
 <hunger>
     <depletion>off</depletion>

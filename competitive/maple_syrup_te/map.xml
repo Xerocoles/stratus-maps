@@ -1,6 +1,7 @@
 <map proto="1.4.0" game="King of the Flag">
-<name>Maple Syrup TE</name>
+<name>Maple Syrup</name>
 <version>2.0.2</version>
+<edition>tournament</edition>
 <objective>Control the flag for 200 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -129,7 +130,7 @@
           pickup-kit="flag-kit"
           drop-kit="reset-health"
           flag-proximity-metric="closest player"
-          show-respawn-on-pickup="false"> <!-- enabled would announce next spawn location on flag pickup -->
+          show-respawn-on-pickup="true">
         <post id="centre-post" return-time="0s" respawn-time="20s" name="Centre Platform">277.5,19,-85.5</post>
         <post id="north-post" return-time="0s" respawn-time="20s" name="North Platform">277.5,27,-119.5</post>
         <post id="south-post" return-time="0s" respawn-time="20s" name="South Platform">277.5,27,-51.5</post>

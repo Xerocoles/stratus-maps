@@ -1,13 +1,13 @@
 <map proto="1.4.0">
 <name>Chestnut</name> <!-- August 2020 -->
-<version>1.0.0</version>
+<version>1.0.1</version>
 <objective>Capture the opponent's wool back to your base!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
 <teams>
-	<team id="red-team" color="dark red" max="4" max-overfill="5">Red</team>
-	<team id="blue-team" color="blue" max="4" max-overfill="5">Blue</team>
+    <team id="red-team" color="dark red" max="4" max-overfill="5">Red</team>
+    <team id="blue-team" color="blue" max="4" max-overfill="5">Blue</team>
 </teams>
 <kits>
     <kit id="spawn-kit">
@@ -65,19 +65,19 @@
 <regions>
     <union id="spawns">
         <union id="red-spawn">
-	        	<rectangle min="-22,47" max="-55,59"/>
-	      </union>
+            <rectangle min="-22,47" max="-55,59"/>
+        </union>
         <union id="blue-spawn">
             <rectangle min="-55,-26" max="-22,-38"/>
-      	</union>
+        </union>
     </union>
     <union id="woolrooms">
         <union id="red-woolrooms">
             <rectangle min="-43,47" max="-34,38"/> <!-- Pink -->
         </union>
-    	  <union id="blue-woolrooms">
-		        <rectangle min="-43,-17" max="-34,-26"/> <!-- Light Blue -->
-	      </union>
+        <union id="blue-woolrooms">
+            <rectangle min="-43,-17" max="-34,-26"/> <!-- Light Blue -->
+        </union>
     </union>
     <union id="spawner-stuff">
         <cuboid id="pink-spawn-drop" min="-38.5,10,42.5" max="-38.5,10,42.5"/>
@@ -86,16 +86,16 @@
         <cuboid id="lightblue-spawn-activation" min="-41,6,-19" max="-36,14,-24"/>
     </union>
     <apply block="never" region="spawns" message="You may not edit the spawn!"/>
-	  <apply enter="only-red" region="red-spawn" message="You may not enter the opponent's spawn!"/>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the opponent's spawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You may not enter the opponent's spawn!"/>
     <apply block="only-webs" region="woolrooms" message="You may not edit the wool rooms!"/>
     <apply use="only-blue" region="red-woolrooms"/>
     <apply use="only-red" region="blue-woolrooms"/>
     <apply block="only-blue" region="red-woolrooms"/>
     <apply block="only-red" region="blue-woolrooms"/>
-  	<apply enter="only-blue" region="red-woolrooms" message="You may not enter your own wool room!"/>
+    <apply enter="only-blue" region="red-woolrooms" message="You may not enter your own wool room!"/>
     <apply enter="only-red" region="blue-woolrooms" message="You may not enter your own wool room!"/>
-	  <apply block-place="no-void" message="You may not edit the void!"/>
+    <apply block-place="no-void" message="You may not edit the void!"/>
 </regions>
 <spawners>
     <spawner id="pink-wool-spawner" spawn-region="pink-spawn-drop" player-region="pink-spawn-activation" max-entities="9999" delay="3s">
@@ -106,12 +106,16 @@
     </spawner>
 </spawners>
 <wools>
-	<wool team="red-team" color="light blue" location="-38.5,9,-21.5">
-    <monument><block>-38.5,14,57.5</block></monument>
-	</wool>
-	<wool team="blue-team" color="pink" location="-38.5,9,42.5">
-		<monument><block>-38.5,14,-36.5</block></monument>
-	</wool>
+    <wool team="red-team" color="light blue" location="-38.5,9,-21.5">
+        <monument>
+            <block>-38.5,14,57.5</block>
+        </monument>
+    </wool>
+    <wool team="blue-team" color="pink" location="-38.5,9,42.5">
+        <monument>
+            <block>-38.5,14,-36.5</block>
+        </monument>
+    </wool>
 </wools>
 <toolrepair>
     <tool>iron sword</tool>
@@ -122,9 +126,9 @@
 <itemremove>
     <item>arrow</item>
     <item>golden carrot</item>
-  	<item>wood</item>
-  	<item>stained glass</item>
-  	<item>string</item>
+    <item>wood</item>
+    <item>stained glass</item>
+    <item>string</item>
     <item>sapling</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
@@ -141,7 +145,7 @@
     <item>stick</item>
 </itemremove>
 <killreward>
-	  <item>golden apple</item>
+    <item>golden apple</item>
     <item amount="10" damage="5">wood</item>
 </killreward>
 <timelock>on</timelock>
