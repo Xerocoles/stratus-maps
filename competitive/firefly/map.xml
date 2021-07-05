@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Firefly</name>
-<version>1.4.2</version>
+<version>1.4.3</version>
 <objective>Capture the opponent's flags as many times as possible!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -22,8 +22,8 @@
     </spawn>
     <default kit="obs-kit">
         <region yaw="-90">
-          	<cuboid min="77.5,5,93.5" max="79.5,5,95.5"/>
-  	    </region>
+            <cuboid min="77.5,5,93.5" max="79.5,5,95.5"/>
+        </region>
     </default>
 </spawns>
 <respawn delay="4s"/>
@@ -32,9 +32,9 @@
         <game-mode>adventure</game-mode>
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true">bow</item>
-	    	<item slot="2">golden apple</item>
+        <item slot="2">golden apple</item>
         <item slot="3" amount="20">arrow</item>
-	    	<leggings enchantment="protection projectile:2" unbreakable="true">chainmail leggings</leggings>
+        <leggings enchantment="protection projectile:2" unbreakable="true">chainmail leggings</leggings>
         <boots enchantment="protection fall:1" unbreakable="true">iron boots</boots>
         <potion duration="oo">night vision</potion>
     </kit>

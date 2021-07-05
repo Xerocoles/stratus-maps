@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Revolution</name>
-<version>1.1.2</version>
+<version>1.1.3</version>
 <objective>Hold the flag for 200 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -46,11 +46,11 @@
         <item slot="2" material="golden apple"/>
         <item slot="3" amount="16" material="arrow"/>
         <leggings unbreakable="true" locked="true" enchantment="protection projectile:3" material="chainmail leggings"/>
-	    	<boots unbreakable="true" locked="true" enchantment="protection fall:1" material="iron boots"/>
+        <boots unbreakable="true" locked="true" enchantment="protection fall:1" material="iron boots"/>
         <effect duration="oo" amplifier="1">night vision</effect>
         <effect duration="1" amplifier="0">health boost</effect>
         <effect duration="1" amplifier="10">regeneration</effect>
-				<effect duration="6" amplifier="10">resistance</effect>
+        <effect duration="6" amplifier="10">resistance</effect>
     </kit>
     <kit id="red-spawn" parents="spawn-kit">
         <helmet color="993333" unbreakable="true" locked="true" material="leather helmet"/>
@@ -66,9 +66,9 @@
     <kit id="flag-kit" force="true">
         <potion duration="oo" amplifier="-3">health boost</potion>
         <potion duration="3" amplifier="2">absorption</potion>
-				<!--
-				<potion duration="oo" amplifier="1">slowness</potion>
-			  -->
+        <!--
+        <potion duration="oo" amplifier="1">slowness</potion>
+        -->
     </kit>
     <kit id="reset-health" force="true">
         <potion duration="1" amplifier="0">health boost</potion>
@@ -83,8 +83,8 @@
     <item>banner</item>
 </itemremove>
 <toolrepair>
-	  <item>stone sword</item>
-	  <item>bow</item>
+    <item>stone sword</item>
+    <item>bow</item>
 </toolrepair>
 <score>
     <limit>200</limit>
@@ -96,7 +96,7 @@
         <post id="north-post" name="North Post" return-time="0s" respawn-time="20s">
             <block>-67.5,13,53.5</block>
         </post>
-	      <post id="south-post" name="South Post" return-time="0s" respawn-time="20s">
+        <post id="south-post" name="South Post" return-time="0s" respawn-time="20s">
             <block>-67.5,13,87.5</block>
         </post>
     </flag>
@@ -112,6 +112,6 @@
 </hunger>
 <kill-reward>
     <item material="golden apple"/>
-	  <item material="arrow" amount="6"/>
+    <item material="arrow" amount="6"/>
 </kill-reward>
 </map>

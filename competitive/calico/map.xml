@@ -1,13 +1,13 @@
 <map proto="1.4.0">
 <name>Calico</name>
-<version>1.5.7</version>
+<version>1.5.8</version>
 <objective>Reach 1000 points before the opposing team!</objective>
 <gamemode>koth</gamemode>
 <authors>
     <author uuid= "0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
 <contributors>
-  	<contributor uuid= "a63de09d-6fa9-436f-9070-26f5e9a4d27b"/> <!-- dragonrider -->
+    <contributor uuid= "a63de09d-6fa9-436f-9070-26f5e9a4d27b"/> <!-- dragonrider -->
     <contributor uuid= "621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
     <contributor uuid= "6bec5c3a-4934-4b19-9aa8-c7c569820f7d"/> <!-- Claf -->
 </contributors>
@@ -61,7 +61,7 @@ scaled-time="true">
             <union id="cap-region-up">
                 <cuboid min="16,17,-15" max="23,20,-22"/>
                 <cuboid min="22,17,-23" max="17,20,-14"/>
-			        	<cuboid min="24,17,-21" max="15,20,-16"/>
+                <cuboid min="24,17,-21" max="15,20,-16"/>
             </union>
         </capture>
         <progress>
@@ -73,19 +73,19 @@ scaled-time="true">
             <union id="cap-region-mid">
                 <cuboid min="3,10,5" max="-2,12,-4"/>
                 <cuboid min="-3,10,-3" max="4,12,4"/>
-		        		<cuboid min="5,10,3" max="-4,12,-2"/>
+                <cuboid min="5,10,3" max="-4,12,-2"/>
             </union>
         </capture>
         <progress>
             <region id="cap-region-mid"/>
         </progress>
     </control-point>
-	 <control-point name="Arch Hill" points="1">
+    <control-point name="Arch Hill" points="1">
         <capture>
             <union id="cap-region-arch">
                 <cuboid min="-26,13,20" max="-19,15,27"/>
                 <cuboid min="-18,13,26" max="-27,15,21"/>
-			        	<cuboid min="-25,13,19" max="-20,15,28"/>
+                <cuboid min="-25,13,19" max="-20,15,28"/>
             </union>
         </capture>
         <progress>
@@ -117,16 +117,16 @@ scaled-time="true">
     <item>iron boots</item>
 </itemremove>
 <toolrepair>
-	<tool>stone sword</tool>
-	<tool>bow</tool>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
 </toolrepair>
 <kill-rewards>
     <kill-reward>
         <item>golden apple</item>
     </kill-reward>
-	<kill-reward>
-		<item amount="8">arrow</item>
-	</kill-reward>
+    <kill-reward>
+        <item amount="8">arrow</item>
+    </kill-reward>
 </kill-rewards>
 <score>
     <limit>1000</limit>

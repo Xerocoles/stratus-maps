@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
 <map proto="1.4.0">
 <name>Canyon</name>
-<version>1.1.3</version>
+<version>1.1.4</version>
 <objective>Capture the opposing team's wools!</objective>
 <gamemode>ctw</gamemode>
 <authors>
@@ -27,7 +26,7 @@
         <item slot="7" material="golden apple"/>
         <item slot="8" material="bucket"/>
         <leggings material="chainmail leggings"/>
-    	<boots enchantment="protection fall:1" material="iron boots"/>
+        <boots enchantment="protection fall:1" material="iron boots"/>
         <effect duration="5" amplifier="1">heal</effect>
     </kit>
     <kit id="red-kit" parents="spawn-kit">

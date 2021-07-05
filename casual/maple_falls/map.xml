@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <map proto="1.4.0">
 <name>Maple Falls</name>
 <version>1.2.1</version>
@@ -8,7 +7,7 @@
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
 <contributors>
-	<contributor uuid="2cef6d05-ec9a-44b3-bedc-53359c68ae65" contribution="XML Reformat"/> <!-- BGMP -->
+    <contributor uuid="2cef6d05-ec9a-44b3-bedc-53359c68ae65" contribution="XML Reformat"/> <!-- BGMP -->
     <contributor uuid="bf331953-4f92-43ee-8abc-7544b8234936" contribution="Not knowing how different 1.3 and 1.4 protos are"/> <!-- ViceTechnicolour -->
 </contributors>
 <teams>
@@ -82,12 +81,12 @@
     <limit>3</limit>
 </score>
 <filters>
-	<team id="only-cyan">cyan-team</team>
-	<team id="only-magenta">magenta-team</team>
+    <team id="only-cyan">cyan-team</team>
+    <team id="only-magenta">magenta-team</team>
 </filters>
 <regions>
-	<cuboid id="magenta-platform" min="-1.5,11,-22.5" max="2.5,13,-26.5"/>
-	<cuboid id="cyan-platform" min="2.5,11,22.5" max="-1.5,13,26.5"/>
+    <cuboid id="magenta-platform" min="-1.5,11,-22.5" max="2.5,13,-26.5"/>
+    <cuboid id="cyan-platform" min="2.5,11,22.5" max="-1.5,13,26.5"/>
     <!-- applicators -->
     <apply block="never" region="everywhere"/>
 </regions>

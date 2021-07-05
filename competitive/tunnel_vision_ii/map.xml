@@ -1,6 +1,6 @@
-<map proto="1.4.2">
+<map proto="1.4.0">
 <name>Tunnel Vision II</name>
-<version>1.0.1</version>
+<version>1.0.2</version>
 <objective>Capture the enemy's wools!</objective>
 <authors>
     <author uuid="e931b4b3-479f-4761-8808-4c4b2ed69b0f" contribution="Layout, Terrain"/> <!-- Mattato -->
@@ -41,7 +41,7 @@
         <item slot="4" amount="64" material="wood"/>
         <item slot="6" amount="32" material="glass"/>
         <item slot="7" material="golden apple"/>
-		    <item slot="8" amount="64" material="golden carrot"/>
+        <item slot="8" amount="64" material="golden carrot"/>
         <effect duration="4" amplifier="255">resistance</effect>
     </kit>
     <kit id="red-kit" parents="spawn">
@@ -74,9 +74,9 @@
             <material>stained glass</material>
         </any>
     </all>
-	<not id="deny-player-place">
+    <not id="deny-player-place">
         <participating/>
-  </not>
+    </not>
 </filters>
 <regions>
     <union id="spawns">
@@ -229,7 +229,7 @@
     <kill-reward>
         <item amount="16">wood</item>
     </kill-reward>
-	  <kill-reward>
+    <kill-reward>
         <item amount="8">glass</item>
     </kill-reward>
     <kill-reward>
@@ -247,7 +247,7 @@
     <item>string</item>
     <item>seeds</item>
     <item>red rose</item>
-	  <item>arrow</item>
+    <item>arrow</item>
     <item>flint</item>
 </itemremove>
 <toolrepair>
@@ -258,16 +258,24 @@
 </toolrepair>
 <wools>
     <wool team="red-team" color="purple" craftable="false" location="74.5,23,191.5">
-        <monument><block>48.5,17,-77.5</block></monument>
+        <monument>
+            <block>48.5,17,-77.5</block>
+        </monument>
     </wool>
     <wool team="red-team" color="cyan" craftable="false" location="18.5,23,191.5">
-        <monument><block>48.5,17,-73.5</block></monument>
+        <monument>
+            <block>48.5,17,-73.5</block>
+        </monument>
     </wool>
     <wool team="blue-team" color="orange" craftable="false" location="18.5,23,-64.5">
-        <monument><block>48.5,17,200.5</block></monument>
+        <monument>
+            <block>48.5,17,200.5</block>
+        </monument>
     </wool>
     <wool team="blue-team" color="yellow" craftable="false" location="74.5,23,-64.5">
-        <monument><block>48.5,17,204.5</block></monument>
+        <monument>
+            <block>48.5,17,204.5</block>
+        </monument>
     </wool>
 </wools>
 <crafting>

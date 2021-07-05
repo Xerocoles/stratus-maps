@@ -1,4 +1,4 @@
-<map proto="1.4.2">
+<map proto="1.4.0">
 <name>North Winds</name>
 <version>1.0.1</version>
 <objective>Reach 750 points before the opposing team!</objective>
@@ -50,8 +50,7 @@
         </region>
     </spawn>
 </spawns>
-<control-points capture-time="4s" incremental="true" neutral-state="true" show-progress="true" required="false"
-scaled-time="true" time-multiplier="2">
+<control-points capture-time="4s" incremental="true" neutral-state="true" show-progress="true" required="false" scaled-time="true" time-multiplier="2">
     <control-point name="Upper Hill" points="4">
         <capture>
             <union id="cap-region-up">

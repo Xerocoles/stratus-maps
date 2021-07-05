@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
 <map proto="1.4.0">
 <name>Eclipse</name>
-<version>1.0.2</version>
+<version>1.0.3</version>
 <objective>Reach 300 points before the other team!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -37,22 +36,22 @@
     </kit>
     <kit id="spawn">
         <clear/>
-		    <item slot="0" material="stone sword" unbreakable="true"/>
-	    	<item slot="1" material="bow" unbreakable="true"/>
+        <item slot="0" material="stone sword" unbreakable="true"/>
+        <item slot="1" material="bow" unbreakable="true"/>
         <item slot="2" material="golden apple" amount="1"/>
-		    <item slot="3" material="arrow" amount="8"/>
-	    	<potion amplifier="255" duration="3">resistance</potion>
+        <item slot="3" material="arrow" amount="8"/>
+        <potion amplifier="255" duration="3">resistance</potion>
         <potion amplifier="255" duration="9999">night vision</potion>
-	    	<chestplate color="4C4C4C" unbreakable="true" material="leather chestplate"/>
+        <chestplate color="4C4C4C" unbreakable="true" material="leather chestplate"/>
         <boots unbreakable="true" material="iron boots"/>
     </kit>
     <kit id="purple-kit" parents="spawn">
-	    	<helmet color="7F3FB2" material="leather helmet" unbreakable="true"/>
-	    	<leggings color="7F3FB2" material="leather leggings" unbreakable="true"/>
+        <helmet color="7F3FB2" material="leather helmet" unbreakable="true"/>
+        <leggings color="7F3FB2" material="leather leggings" unbreakable="true"/>
     </kit>
     <kit id="green-kit" parents="spawn">
-	    	<helmet color="01DF01" material="leather helmet" unbreakable="true"/>
-	    	<leggings color="01DF01" material="leather leggings" unbreakable="true"/>
+        <helmet color="01DF01" material="leather helmet" unbreakable="true"/>
+        <leggings color="01DF01" material="leather leggings" unbreakable="true"/>
     </kit>
 </kits>
 <control-points incremental="true" show-progress="true" required="false" points="1" capture-time="5" neutral-state="true">
@@ -91,8 +90,8 @@
     <team id="only-purple">purple</team>
 </filters>
 <toolrepair>
-	<tool>stone sword</tool>
-	<tool>bow</tool>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
 </toolrepair>
 <itemremove>
     <item>leather helmet</item>
@@ -109,8 +108,8 @@
 </hunger>
 <kill-rewards>
     <kill-reward>
-	      <item amount="1" material="golden apple"/>
-       	<item amount="4" material="arrow"/>
+        <item amount="1" material="golden apple"/>
+        <item amount="4" material="arrow"/>
     </kill-reward>
 </kill-rewards>
 <timelock>on</timelock>

@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Titan</name>
-<version>1.1.1</version>
+<version>1.1.2</version>
 <objective>Kill your opponents and run through their scoreboxes to gain points!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -192,9 +192,9 @@
     <kill-reward>
         <item>golden apple</item>
     </kill-reward>
-	  <kill-reward>
-	    	<item amount="8">arrow</item>
-	  </kill-reward>
+    <kill-reward>
+        <item amount="8">arrow</item>
+    </kill-reward>
 </kill-rewards>
 <hunger>
     <depletion>off</depletion>

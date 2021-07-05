@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Royal</name>
-<version>1.0.1</version>
+<version>1.0.2</version>
 <objective>Hold the flag for 250 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -56,27 +56,27 @@
 </kits>
 <spawns>
     <spawn team="red" kit="redk" filter="no-flag">
-    	<regions yaw="0">
+        <regions yaw="0">
             <point>0.5,13.1,72.5</point>
         </regions>
     </spawn>
     <spawn team="blue" kit="bluek" filter="no-flag">
-    	<regions yaw="90">
+        <regions yaw="90">
             <point>57.5,13.1,129.5</point>
         </regions>
     </spawn>
     <spawn team="green" kit="greenk" filter="no-flag">
-    	<regions yaw="-90">
+        <regions yaw="-90">
             <point>-56.4,13.1,129.5</point>
         </regions>
     </spawn>
     <spawn team="yellow" kit="yellowk" filter="no-flag">
-    	<regions yaw="180">
+        <regions yaw="180">
             <point>0.5,13.1,185.5</point>
         </regions>
     </spawn>
     <default>
-    	<regions yaw="-90">
+        <regions yaw="-90">
             <cylinder base="-24.5,45,129.5" radius="1" height="0"/>
         </regions>
     </default>
@@ -101,76 +101,76 @@
     </all>
 </filters>
 <regions>
-	<cuboid id="test" min="-19,13,147" max="-17,15,149"/>
+    <cuboid id="test" min="-19,13,147" max="-17,15,149"/>
     <apply block="never"/>
     <!-- Corners -->
     <!--  Green Yellow Pad  -->
     <apply velocity="-0.5,1.7,0.5" region="test"/>
     <!--  Yellow Blue Pad  -->
     <apply velocity="0.5,1.7,0.5">
-    	<region>
+        <region>
             <cuboid min="18,13,147" max="20,15,149"/>
         </region>
     </apply>
     <!--  Blue Red Pad  -->
     <apply velocity="0.5,1.7,-0.5">
-    	<region>
+        <region>
             <cuboid min="18,13,110" max="20,15,112"/>
         </region>
     </apply>
     <!--  Red Green Pad  -->
     <apply velocity="-0.5,1.7,-0.5">
-    	<region>
+        <region>
             <cuboid min="-19,13,110" max="-17,15,112"/>
         </region>
     </apply>
     <!-- To Mid -->
     <!-- Red -->
     <apply velocity="0,1.2,1.1">
-    	<region>
+        <region>
             <block>0.5,27,119.5</block>
         </region>
     </apply>
     <!--   Blue   -->
     <apply velocity="-1.1,1.2,0">
-    	<region>
+        <region>
             <block>10.5,27,129.5</block>
         </region>
     </apply>
     <!--  Green   -->
     <apply velocity="1.1,1.2,0">
-    	<region>
+        <region>
             <block>-9.5,27,129.5</block>
         </region>
     </apply>
     <!--  Yellow   -->
     <apply velocity="0,1.2,-1.1">
-    	<region>
+        <region>
             <block>0.5,27,139.5</block>
         </region>
     </apply>
    <!-- From Mid -->
     <!-- Red -->
     <apply velocity="0,0.7,-1.5">
-    	<region>
+        <region>
             <block>0.5,31,125.5</block>
         </region>
     </apply>
     <!--   Blue   -->
     <apply velocity="1.5,0.7,0">
-    	<region>
+        <region>
             <block>4.5,31,129.5</block>
         </region>
     </apply>
     <!--  Green   -->
     <apply velocity="-1.5,0.7,0">
-    	<region>
+        <region>
             <block>-3.5,31,129.5</block>
         </region>
     </apply>
     <!--  Yellow   -->
     <apply velocity="0,0.7,1.5">
-    	<region>
+        <region>
             <block>0.5,31,133.5</block>
         </region>
     </apply>

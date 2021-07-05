@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Riptide</name>
-<version>1.1.1</version>
+<version>1.1.2</version>
 <objective>Capture the opponent's flag as many times as possible in 12 minutes!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -16,7 +16,7 @@
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true">bow</item>
         <item slot="2" amount="32">arrow</item>
-	    	<leggings unbreakable="true">chainmail leggings</leggings>
+        <leggings unbreakable="true">chainmail leggings</leggings>
         <boots unbreakable="true" enchantment="protection fall:2">iron boots</boots>
         <potion duration="7" amplifier="255">resistance</potion>
     </kit>

@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Cobalt</name>
-<version>2.1.4</version>
+<version>2.1.5</version>
 <objective>Reach 750 points before the opposing team!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -52,8 +52,7 @@
         </region>
     </spawn>
 </spawns>
-<control-points capture-time="5s" incremental="true" neutral-state="true" show-progress="true" required="false"
-scaled-time="true">
+<control-points capture-time="5s" incremental="true" neutral-state="true" show-progress="true" required="false" scaled-time="true">
     <control-point name="Mid Hill" points="1">
         <capture>
             <union id="cap-region-mid">
@@ -82,7 +81,7 @@ scaled-time="true">
             <cuboid min="313,34,99" max="320,41,92"/>
         </captured>
     </control-point>
-	 <control-point name="West Hill" points="1">
+    <control-point name="West Hill" points="1">
         <capture>
             <union id="cap-region-west">
                 <cuboid min="265,13,99" max="260,16,92"/>
@@ -116,16 +115,16 @@ scaled-time="true">
     <item>iron boots</item>
 </itemremove>
 <toolrepair>
-	  <tool>stone sword</tool>
-	  <tool>bow</tool>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
 </toolrepair>
 <kill-rewards>
     <kill-reward>
         <item>golden apple</item>
     </kill-reward>
-	  <kill-reward>
-	    	<item amount="6">arrow</item>
-	  </kill-reward>
+    <kill-reward>
+        <item amount="6">arrow</item>
+    </kill-reward>
 </kill-rewards>
 <score>
     <limit>750</limit>
