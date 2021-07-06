@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <game>King of the Flag</game>
 <name>Maple Syrup</name>
-<version>1.0.7</version>
+<version>1.0.8</version>
 <objective>Control the flag for 200 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -80,26 +80,8 @@
         <cuboid min="204,16,-56" max="199,40,-115"/>
     </union>
     <apply enter="flag-dam" message="You may not climb the dam while carrying the flag!" region="dam-area"/>
-    <apply use="never" block="never"/>
+    <apply block="never"/>
 </regions>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>bow</tool>
-</toolrepair>
-<itemremove>
-    <item>leather helmet</item>
-    <item>chainmail leggings</item>
-    <item>iron boots</item>
-    <item>leather chestplate</item>
-</itemremove>
-<itemkeep>
-    <item>golden apple</item>
-    <item>arrow</item>
-</itemkeep>
-<kill-reward>
-    <item material="golden apple"/>
-    <item amount="8" material="arrow"/>
-</kill-reward>
 <flags>
     <flag id="flag"
           name="Flag"
@@ -119,6 +101,24 @@
 <score>
     <limit>200</limit>
 </score>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="8" material="arrow"/>
+</kill-reward>
 <respawn spectate="true">
     <message>
         {"translate":"death.respawn.confirmed.waiting.flagDropped"}
