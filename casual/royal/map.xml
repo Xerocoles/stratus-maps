@@ -1,6 +1,7 @@
 <map proto="1.4.0">
+<game>King of the Flag</game>
 <name>Royal</name>
-<version>1.0.2</version>
+<version>1.0.4</version>
 <objective>Hold the flag for 250 seconds to win!</objective>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
@@ -10,43 +11,48 @@
 </contributors>
 <teams>
     <team id="blue" color="blue" max="5">Blue</team>
-    <team id="red" color="dark red" max="5">Red</team>
     <team id="green" color="green" max="5">Green</team>
+    <team id="red" color="dark red" max="5">Red</team>
     <team id="yellow" color="yellow" max="5">Yellow</team>
 </teams>
 <rules>
     <rule>Aiding member of other teams is not allowed.</rule>
 </rules>
 <kits>
-    <kit id="spawn">
+    <kit id="spawn-kit">
         <clear/>
-        <item slot="0" material="stone sword"/>
-        <item slot="1" material="bow"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
         <item slot="2" amount="64" material="golden carrot"/>
         <item slot="3" material="golden apple"/>
         <item slot="8" amount="32" material="arrow"/>
-        <leggings material="chainmail leggings"/>
-        <boots enchantment="protection fall:2" material="iron boots"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="3">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots">
+            <enchantment level="2">feather_falling</enchantment>
+        </boots>
         <health>20</health>
+        <game-mode>adventure</game-mode>
     </kit>
-    <kit id="redk" parents="spawn">
-        <helmet color="AF002A" unbreakable="true" material="leather helmet"/>
-        <chestplate color="AF002A" unbreakable="true" material="leather chestplate"/>
-    </kit>
-    <kit id="bluek" parents="spawn">
+    <kit id="blue-kit" parents="spawn-kit">
         <helmet color="6E6EF9" unbreakable="true" material="leather helmet"/>
         <chestplate color="6E6EF9" unbreakable="true" material="leather chestplate"/>
     </kit>
-    <kit id="greenk" parents="spawn">
+    <kit id="green-kit" parents="spawn-kit">
         <helmet color="667F33" unbreakable="true" material="leather helmet"/>
         <chestplate color="667F33" unbreakable="true" material="leather chestplate"/>
     </kit>
-    <kit id="yellowk" parents="spawn">
+    <kit id="red-kit" parents="spawn-kit">
+        <helmet color="AF002A" unbreakable="true" material="leather helmet"/>
+        <chestplate color="AF002A" unbreakable="true" material="leather chestplate"/>
+    </kit>
+    <kit id="yellow-kit" parents="spawn-kit">
         <helmet color="E5E533" unbreakable="true" material="leather helmet"/>
         <chestplate color="E5E533" unbreakable="true" material="leather chestplate"/>
     </kit>
-    <kit id="flagc" force="true">
-        <effect duration="oo" amplifier="-3">health boost</effect>
+    <kit id="flag-kit" force="true">
+        <effect amplifier="-3">health boost</effect>
         <effect duration="3" amplifier="2">absorption</effect>
     </kit>
     <kit id="reset-health" force="true">
@@ -55,37 +61,32 @@
     </kit>
 </kits>
 <spawns>
-    <spawn team="red" kit="redk" filter="no-flag">
-        <regions yaw="0">
-            <point>0.5,13.1,72.5</point>
-        </regions>
-    </spawn>
-    <spawn team="blue" kit="bluek" filter="no-flag">
-        <regions yaw="90">
-            <point>57.5,13.1,129.5</point>
-        </regions>
-    </spawn>
-    <spawn team="green" kit="greenk" filter="no-flag">
-        <regions yaw="-90">
-            <point>-56.4,13.1,129.5</point>
-        </regions>
-    </spawn>
-    <spawn team="yellow" kit="yellowk" filter="no-flag">
-        <regions yaw="180">
-            <point>0.5,13.1,185.5</point>
-        </regions>
-    </spawn>
-    <default>
-        <regions yaw="-90">
+    <default yaw="-90">
+        <region>
             <cylinder base="-24.5,45,129.5" radius="1" height="0"/>
-        </regions>
+        </region>
     </default>
+    <spawn team="blue" kit="blue-kit" filter="no-flag" yaw="90">
+        <region>
+            <point>57.5,13.1,129.5</point>
+        </region>
+    </spawn>
+    <spawn team="green" kit="green-kit" filter="no-flag" yaw="-90">
+        <region>
+            <point>-56.4,13.1,129.5</point>
+        </region>
+    </spawn>
+    <spawn team="red" kit="red-kit" filter="no-flag" yaw="0">
+        <region>
+            <point>0.5,13.1,72.5</point>
+        </region>
+    </spawn>
+    <spawn team="yellow" kit="yellow-kit" filter="no-flag" yaw="180">
+        <region>
+            <point>0.5,13.1,185.5</point>
+        </region>
+    </spawn>
 </spawns>
-<respawn spectate="true">
-    <message>
-        { translate: "death.respawn.confirmed.waiting.flagDropped" }
-    </message>
-</respawn>
 <filters>
     <all id="no-flag">
         <not>
@@ -102,7 +103,6 @@
 </filters>
 <regions>
     <cuboid id="test" min="-19,13,147" max="-17,15,149"/>
-    <apply block="never"/>
     <!-- Corners -->
     <!--  Green Yellow Pad  -->
     <apply velocity="-0.5,1.7,0.5" region="test"/>
@@ -174,32 +174,8 @@
             <block>0.5,31,133.5</block>
         </region>
     </apply>
+    <apply block="never"/>
 </regions>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>bow</tool>
-</toolrepair>
-<itemremove>
-    <item>leather helmet</item>
-    <item>chainmail leggings</item>
-    <item>iron boots</item>
-    <item>leather chestplate</item>
-    <item>arrow</item>
-    <item>golden carrot</item>
-    <item>banner</item>
-</itemremove>
-<itemkeep>
-    <item>golden apple</item>
-</itemkeep>
-<score>
-    <limit>250</limit>
-    <kills>0</kills>
-    <deaths>0</deaths>
-</score>
-<kill-reward>
-    <item amount="16">arrow</item>
-    <item>golden apple</item>
-</kill-reward>
 <flags>
     <post id="top-post" return-time="0s" respawn-time="10s">
         <block>0.5,32,129.5</block>
@@ -207,7 +183,35 @@
     <post id="bottom-post" return-time="0s" respawn-time="10s">
         <block>0.5,17,129.5</block>
     </post>
-    <flag id="flag1" name="Top Flag"  shared="true" post="top-post" points-rate="1" pickup-kit="flagc" drop-kit="reset-health"/>
-    <flag id="flag2" name="Bottom Flag"  shared="true" post="bottom-post" points-rate="1" pickup-kit="flagc" drop-kit="reset-health"/>
+    <flag id="flag1" name="Top Flag"  shared="true" post="top-post" points-rate="1" pickup-kit="flag-kit" drop-kit="reset-health"/>
+    <flag id="flag2" name="Bottom Flag"  shared="true" post="bottom-post" points-rate="1" pickup-kit="flag-kit" drop-kit="reset-health"/>
 </flags>
+<score>
+    <limit>250</limit>
+</score>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>golden carrot</item>
+    <item>leather helmet</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+    <item>leather chestplate</item>
+    <item>banner</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="16" material="arrow"/>
+</kill-reward>
+<respawn spectate="true">
+    <message>
+        {"translate":"death.respawn.confirmed.waiting.flagDropped"}
+    </message>
+</respawn>
 </map>
