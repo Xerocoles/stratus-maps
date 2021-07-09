@@ -201,6 +201,7 @@
 <kill-reward>
     <item material="golden apple"/>
     <item amount="16" damage="4" material="wood"/>
+    <item amount="8" material="glass"/>
 </kill-reward>
 <crafting>
     <disable>iron trapdoor</disable>
