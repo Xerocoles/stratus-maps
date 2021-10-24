@@ -1,80 +1,111 @@
-<map proto="1.4.0">
+<map proto="1.4.2">
 <name>Revolution</name>
-<version>1.1.2</version>
+<version>1.1.9</version>
 <objective>Hold the flag for 200 seconds to win!</objective>
+<gamemode>kotf</gamemode>
 <authors>
     <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
 </authors>
-<respawn spectate="true" delay="7s" auto="true">
-    <message>
-        {translate:"death.respawn.confirmed.waiting.flagDropped"}
-    </message>
-</respawn>
 <teams>
     <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
     <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
 </teams>
+<kits>
+    <kit id="default-kit">
+        <effect>night vision</effect>
+    </kit>
+    <kit id="spawn-kit" parents="default-kit">
+        <clear/>
+        <item slot="0" unbreakable="true" locked="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" locked="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <leggings unbreakable="true" locked="true" material="chainmail leggings">
+            <enchantment level="4">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" locked="true" material="iron boots">
+            <enchantment>feather_falling</enchantment>
+        </boots>
+        <effect duration="1" amplifier="0">health boost</effect>
+        <effect duration="1" amplifier="10">regeneration</effect>
+        <effect duration="6" amplifier="10">resistance</effect>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <kit id="blue-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="334CB2" locked="true" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" locked="true" material="leather chestplate"/>
+    </kit>
+    <kit id="red-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="993333" locked="true" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" locked="true" material="leather chestplate"/>
+    </kit>
+    <kit id="flag-kit" force="true">
+        <effect amplifier="-3">health boost</effect>
+        <effect duration="3" amplifier="2">absorption</effect>
+        <!-- <effect>slowness</effect> -->
+    </kit>
+    <kit id="reset-health" force="true">
+        <effect duration="1" amplifier="0">health boost</effect>
+        <effect duration="1" amplifier="10">regeneration</effect>
+    </kit>
+</kits>
 <spawns>
-    <default yaw="-90" kit="obs">
-        <regions>
+    <default kit="default-kit">
+        <region yaw="-90">
             <point>-120.5,66,70.5</point>
-        </regions>
+        </region>
     </default>
-    <spawn team="blue" kit="blue-spawn" yaw="90">
-        <regions>
+    <spawn team="blue" kit="blue-kit" filter="has-flag">
+        <region yaw="90">
             <point>-24,14,70.5</point>
-        </regions>
+        </region>
     </spawn>
-    <spawn team="red" kit="red-spawn" yaw="-90">
-        <regions>
+    <spawn team="red" kit="red-kit" filter="has-flag">
+        <region yaw="-90">
             <point>-111,14,70.5</point>
-        </regions>
+        </region>
     </spawn>
-    <filter>
+</spawns>
+<filters>
+    <any id="has-flag">
+        <carrying-flag>flag</carrying-flag>
         <not>
             <same-team>
                 <carrying-flag>flag</carrying-flag>
             </same-team>
         </not>
-    </filter>
-</spawns>
-<kits>
-    <kit id="spawn-kit">
-        <clear/>
-        <item slot="0" unbreakable="true" locked="true" material="stone sword"/>
-        <item slot="1" unbreakable="true" locked="true" material="bow"/>
-        <item slot="2" material="golden apple"/>
-        <item slot="3" amount="16" material="arrow"/>
-        <leggings unbreakable="true" locked="true" enchantment="protection projectile:3" material="chainmail leggings"/>
-	    	<boots unbreakable="true" locked="true" enchantment="protection fall:1" material="iron boots"/>
-        <effect duration="oo" amplifier="1">night vision</effect>
-        <effect duration="1" amplifier="0">health boost</effect>
-        <effect duration="1" amplifier="10">regeneration</effect>
-				<effect duration="6" amplifier="10">resistance</effect>
-    </kit>
-    <kit id="red-spawn" parents="spawn-kit">
-        <helmet color="993333" unbreakable="true" locked="true" material="leather helmet"/>
-        <chestplate color="993333" unbreakable="true" locked="true" material="leather chestplate"/>
-    </kit>
-    <kit id="blue-spawn" parents="spawn-kit">
-        <helmet color="334CB2" unbreakable="true" locked="true" material="leather helmet"/>
-        <chestplate color="334CB2" unbreakable="true" locked="true" material="leather chestplate"/>
-    </kit>
-    <kit id="obs">
-        <effect duration="oo" amplifier="1">night vision</effect>
-    </kit>
-    <kit id="flag-kit" force="true">
-        <potion duration="oo" amplifier="-3">health boost</potion>
-        <potion duration="3" amplifier="2">absorption</potion>
-				<!--
-				<potion duration="oo" amplifier="1">slowness</potion>
-			  -->
-    </kit>
-    <kit id="reset-health" force="true">
-        <potion duration="1" amplifier="0">health boost</potion>
-        <potion duration="1" amplifier="10">regeneration</potion>
-    </kit>
-</kits>
+    </any>
+</filters>
+<regions>
+    <apply block="never" block-physics="never"/>
+</regions>
+<flags>
+    <flag id="flag"
+          name="Flag"
+          color="white"
+          shared="true"
+          post="north-post"
+          points-rate="1"
+          pickup-kit="flag-kit"
+          drop-kit="reset-health"
+          flag-proximity-metric="none"
+          show-respawn-on-pickup="true"
+          sequential="false">
+        <post id="north-post" name="North Post" return-time="0s" respawn-time="20s">
+            <block>-67.5,13,53.5</block>
+        </post>
+        <post id="south-post" name="South Post" return-time="0s" respawn-time="20s">
+            <block>-67.5,13,87.5</block>
+        </post>
+    </flag>
+</flags>
+<score>
+    <limit>200</limit>
+</score>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
@@ -82,36 +113,20 @@
     <item>iron boots</item>
     <item>banner</item>
 </itemremove>
-<toolrepair>
-	  <item>stone sword</item>
-	  <item>bow</item>
-</toolrepair>
-<score>
-    <limit>200</limit>
-    <deaths>0</deaths>
-    <kills>0</kills>
-</score>
-<flags>
-    <flag id="flag" name="Flag" color="white" post="post" points-rate="1" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" sequential="false">
-        <post id="north-post" name="North Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,53.5</block>
-        </post>
-	      <post id="south-post" name="South Post" return-time="0s" respawn-time="20s">
-            <block>-67.5,13,87.5</block>
-        </post>
-    </flag>
-</flags>
-<regions>
-    <apply block="never" block-physics="never">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
-    </apply>
-</regions>
-<timelock>on</timelock>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="5" material="arrow"/>
+</kill-reward>
 <hunger>
     <depletion>off</depletion>
 </hunger>
-<kill-reward>
-    <item material="golden apple"/>
-	  <item material="arrow" amount="6"/>
-</kill-reward>
+<respawn spectate="true" delay="7s" auto="true">
+    <message>
+        {"translate":"death.respawn.confirmed.waiting.flagDropped"}
+    </message>
+</respawn>
 </map>
