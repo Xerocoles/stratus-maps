@@ -1,0 +1,142 @@
+<map proto="1.4.0">
+<name>Cobalt 5v5</name>
+<version>2.2.2</version>
+<objective>Reach 750 points before the opposing team!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+    <contributor uuid="3a64dcf4-5d71-4664-80bf-4e5c54e41b86"/> <!-- Zaquez -->
+</contributors>
+<teams>
+    <team id="green" color="green" max="5" max-overfill="5">Green</team>
+    <team id="orange" color="gold" max="5" max-overfill="5">Orange</team>
+</teams>
+<kits>
+    <kit id="default-kit">
+        <effect>night vision</effect>
+    </kit>
+    <kit id="spawn-kit" parents="default-kit">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="16" material="arrow"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="3">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots"/>
+        <effect duration="4" amplifier="255">resistance</effect>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <kit id="green-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="78B81F" material="leather helmet"/>
+        <chestplate unbreakable="true" color="78B81F" material="leather chestplate"/>
+    </kit>
+    <kit id="orange-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="D87F33" material="leather helmet"/>
+        <chestplate unbreakable="true" color="D87F33" material="leather chestplate"/>
+    </kit>
+</kits>
+<spawns>
+    <default kit="default-kit" yaw="-90">
+        <region>
+            <cuboid min="243,33,93" max="246,33,98"/>
+        </region>
+    </default>
+    <spawn team="green" kit="green-kit" yaw="180">
+        <region>
+            <cuboid min="288.35,38,130.65" max="290.65,38,132.35"/>
+        </region>
+    </spawn>
+    <spawn team="orange" kit="orange-kit" yaw="0">
+        <region>
+            <cuboid min="290.65,38,60.35" max="288.35,38,58.65"/>
+        </region>
+    </spawn>
+</spawns>
+<regions>
+    <union id="spawner-stuff">
+        <cuboid id="mid-spawn-area" min="289.4,12.5,95.4" max="289.6,12.5,95.6"/>
+        <cuboid id="mid-spawn-radius" min="299,17,91" max="281,7,100"/>
+    </union>
+    <union id="cap-region-mid">
+        <cuboid min="286,18,98" max="293,21,93"/>
+        <cuboid min="292,18,92" max="287,21,99"/>
+    </union>
+    <union id="cap-region-east">
+        <cuboid min="320,13,93" max="313,16,98"/>
+        <cuboid min="319,13,92" max="314,16,99"/>
+    </union>
+    <union id="cap-region-west">
+        <cuboid min="265,13,99" max="260,16,92"/>
+        <cuboid min="266,13,98" max="259,16,93"/>
+    </union>
+    <apply block="never"/>
+</regions>
+<control-points incremental="true" show-progress="true" neutral-state="true" required="false" capture-time="5s" points="1">
+    <control-point name="Mid Hill">
+        <capture>
+            <region id="cap-region-mid"/>
+        </capture>
+        <progress>
+            <region id="cap-region-mid"/>
+        </progress>
+        <captured>
+            <cuboid min="293,40,92" max="286,47,99"/>
+        </captured>
+    </control-point>
+    <control-point name="East Hill">
+        <capture>
+            <region id="cap-region-east"/>
+        </capture>
+        <progress>
+            <region id="cap-region-east"/>
+        </progress>
+        <captured>
+            <cuboid min="313,34,99" max="320,41,92"/>
+        </captured>
+    </control-point>
+    <control-point name="West Hill">
+        <capture>
+            <region id="cap-region-west"/>
+        </capture>
+        <progress>
+            <region id="cap-region-west"/>
+        </progress>
+        <captured>
+            <cuboid min="266,34,92" max="259,41,99"/>
+        </captured>
+    </control-point>
+</control-points>
+<score>
+    <limit>750</limit>
+</score>
+<spawners>
+    <spawner id="gapple-spawner" spawn-region="mid-spawn-area" player-region="mid-spawn-radius" max-entities="9999" delay="6s">
+        <item amount="1" material="golden apple"/>
+    </spawner>
+</spawners>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="6" material="arrow"/>
+</kill-reward>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<respawn delay="3s" auto="true" blackout="true"/>
+</map>
