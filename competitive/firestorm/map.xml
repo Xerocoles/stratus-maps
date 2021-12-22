@@ -1,0 +1,272 @@
+<map proto="1.4.0">
+<name>Firestorm</name>
+<version>1.2.1</version>
+<objective>Kill the opposing team as many times as possible in 12 minutes!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<kits>
+    <kit id="night-vision">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red-archer" force="true">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" enchantment="power:1" material="bow"/>
+        <item slot="2" unbreakable="true" material="stone pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="8" amount="20" material="arrow"/>
+        <helmet unbreakable="true" color="FFFFFF" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:4" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red-warrior" force="true">
+        <item slot="0" unbreakable="true" enchantment="sharpness:1" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" material="stone pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" color="8C8C8C" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:4" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red-builder" force="true">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" enchantment="dig speed:2" material="iron pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="5" amount="24" material="cobblestone"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" color="191919" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:4" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="blue-archer" force="true">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" enchantment="power:1" material="bow"/>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1" material="stone pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="8" amount="20" material="arrow"/>
+        <helmet unbreakable="true" color="FFFFFF" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:3" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="blue-warrior" force="true">
+        <item slot="0" unbreakable="true" enchantment="sharpness:1" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1" material="stone pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" color="8C8C8C" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:3" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="blue-builder" force="true">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1" material="iron pickaxe"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" amount="4" material="glass"/>
+        <item slot="5" amount="24" material="cobblestone"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" color="191919" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <leggings unbreakable="true" enchantment="protection projectile:3" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <potion duration="3" amplifier="255">resistance</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="heal">
+        <potion duration="3s" amplifier="3">heal</potion>
+        <potion duration="3s">regeneration</potion>
+    </kit>
+</kits>
+<spawns>
+    <default kit="night-vision" yaw="90">
+        <region>
+            <cuboid min="291.5,28,-95" max="291.5,28,-96"/>
+        </region>
+    </default>
+    <spawn team="red" kit="night-vision" yaw="-90">
+        <region>
+            <block>224.5,34.5,-95.5</block>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="night-vision" yaw="90">
+        <region>
+            <block>312.5,34.5,-95.5</block>
+        </region>
+    </spawn>
+</spawns>
+<spawners>
+    <spawner id="gapple-spawner" spawn-region="gapple-spawn-drop" player-region="gapple-spawn-activation" max-entities="9999" delay="7s">
+        <item amount="1" material="golden apple"/>
+    </spawner>
+    <spawner id="red-arrow-spawner" spawn-region="red-arrow-spawn-drop" player-region="red-arrow-spawn-activation" max-entities="9999" delay="2s">
+        <item amount="1" material="arrow"/>
+    </spawner>
+    <spawner id="blue-arrow-spawner" spawn-region="blue-arrow-spawn-drop" player-region="blue-arrow-spawn-activation" max-entities="9999" delay="2s">
+        <item amount="1" material="arrow"/>
+    </spawner>
+</spawners>
+<portals>
+    <!--  Red Kit Portals  -->
+    <portal region="ra" destination="red-spawn" yaw="@0"/>
+    <portal region="rw" destination="red-spawn" yaw="@0"/>
+    <portal region="rb" destination="red-spawn" yaw="@0"/>
+    <!-- Blue Kit Portals  -->
+    <portal region="ba" destination="blue-spawn" yaw="@180"/>
+    <portal region="bw" destination="blue-spawn" yaw="@180"/>
+    <portal region="bb" destination="blue-spawn" yaw="@180"/>
+    <!-- Scorebox Portals -->
+    <portal filter="red-only" region="red-box" destination="red-spawn" yaw="@0"/>
+    <portal filter="blue-only" region="blue-box" destination="blue-spawn" yaw="@180"/>
+</portals>
+<regions>
+    <block id="red-spawn">270,7.5,-151</block>
+    <block id="blue-spawn">267,7.5,-40</block>
+    <union id="kit-regions">
+        <cuboid id="ra" min="234,35,-101" max="233.25,40,-98"/>
+        <cuboid id="rw" min="234,35,-97" max="233.25,40,-94"/>
+        <cuboid id="rb" min="234,35,-93" max="233.25,40,-90"/>
+        <cuboid id="ba" min="303,35,-90" max="303.75,40,-93"/>
+        <cuboid id="bw" min="303,35,-94" max="303.75,40,-97"/>
+        <cuboid id="bb" min="303,35,-98" max="303.75,40,-101"/>
+    </union>
+    <union id="scorebox-stuff">
+        <cuboid id="red-box" min="266,13,-44" max="259,17,-43"/>
+        <cuboid id="blue-box" min="278,13,-147" max="271,17,-148"/>
+    </union>
+    <union id="spawner-stuff">
+        <union id="gapple-spawner-stuff">
+            <cuboid id="gapple-spawn-drop" min="268.4,6.5,-95.4" max="268.6,6.5,-95.6"/>
+            <cuboid id="gapple-spawn-activation" min="262,5,-100" max="275,11,-91"/>
+        </union>
+        <union id="red-arrow-spawner-stuff">
+            <cuboid id="red-arrow-spawn-drop" min="265.4,11.5,-113.4" max="265.6,11.5,-113.6"/>
+            <cuboid id="red-arrow-spawn-activation" min="263,10,-116" max="268,15,-111"/>
+        </union>
+        <union id="blue-arrow-spawner-stuff">
+            <cuboid id="blue-arrow-spawn-drop" min="271.4,11.5,-77.4" max="271.6,11.5,-77.6"/>
+            <cuboid id="blue-arrow-spawn-activation" min="274,10,-75" max="269,15,-80"/>
+        </union>
+    </union>
+    <union id="lava">
+        <rectangle min="244,-86" max="251,-93"/>
+        <rectangle min="258,-86" max="251,-94"/>
+        <rectangle min="258,-87" max="263,-95"/>
+        <rectangle min="262,-96" max="267,-88"/>
+        <rectangle min="269,-89" max="264,-97"/>
+        <rectangle min="269,-89" max="265,-98"/>
+        <rectangle min="269,-89" max="266,-100"/>
+        <rectangle min="269,-89" max="267,-101"/>
+        <rectangle min="270,-90" max="268,-102"/>
+        <rectangle min="271,-91" max="268,-102"/>
+        <rectangle min="272,-93" max="268,-102"/>
+        <rectangle min="273,-94" max="268,-102"/>
+        <rectangle min="275,-95" max="270,-103"/>
+        <rectangle min="275,-95" max="274,-104"/>
+        <rectangle min="279,-96" max="274,-104"/>
+        <rectangle min="286,-97" max="274,-104"/>
+        <rectangle min="281,-105" max="293,-98"/>
+    </union>
+    <union id="scorebox-patio">
+        <cuboid min="270,13,-139" max="279,18,-148"/>
+        <cuboid min="267,13,-52" max="258,18,-43"/>
+    </union>
+    <union id="spawns">
+        <cuboid min="264,7,-51" max="270,12,-39"/>
+        <cuboid min="273,7,-140" max="267,12,-152"/>
+    </union>
+    <apply kit="red-archer" region="ra"/>
+    <apply kit="red-warrior" region="rw"/>
+    <apply kit="red-builder" region="rb"/>
+    <apply kit="blue-archer" region="ba"/>
+    <apply kit="blue-warrior" region="bw"/>
+    <apply kit="blue-builder" region="bb"/>
+    <apply enter="red-only" kit="heal" region="red-box" message="You may not enter your own scorebox!"/>
+    <apply enter="blue-only" kit="heal" region="blue-box" message="You may not enter your own scorebox!"/>
+    <apply block-break="only-some" region="everywhere" message="You may not break this block!"/>
+    <apply block="never" region="scorebox-patio" message="You may not place blocks on this area!"/>
+    <apply block="never" region="lava" message="You may not place blocks in or above the lava!"/>
+    <apply block="never" region="spawns" message="You may not place blocks in or around the spawn!"/>
+</regions>
+<filters>
+    <team id="red-only">red</team>
+    <team id="blue-only">blue</team>
+    <any id="only-some">
+        <material>glass</material>
+        <material>cobblestone</material>
+        <material>cobblestone stairs</material>
+        <material>step:3</material>
+        <material>smooth brick:3</material>
+    </any>
+</filters>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>stone pickaxe</item>
+    <item>iron pickaxe</item>
+    <item>bow</item>
+    <item>glass</item>
+    <item>cobblestone</item>
+    <item>cobblestone stairs</item>
+    <item>step</item>
+    <item>smooth brick:3</item>
+</itemremove>
+<kill-rewards>
+    <kill-reward>
+        <item>golden apple</item>
+    </kill-reward>
+    <kill-reward>
+        <item amount="6">arrow</item>
+    </kill-reward>
+    <kill-reward>
+        <item amount="2">glass</item>
+    </kill-reward>
+</kill-rewards>
+<time>12m</time>
+<score>
+    <kills>1</kills>
+    <deaths>1</deaths>
+    <box points="3" filter="red-only" region="red-box"/>
+    <box points="3" filter="blue-only" region="blue-box"/>
+</score>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<crafting>
+    <disable>cobble wall</disable>
+    <disable>furnace</disable>
+</crafting>
+<respawn delay="6s" auto="true" blackout="true"/>
+<maxbuildheight>18</maxbuildheight>
+<timelock>on</timelock>
+</map>
