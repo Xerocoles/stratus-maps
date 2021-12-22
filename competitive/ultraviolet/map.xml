@@ -1,0 +1,122 @@
+<map proto="1.4.2">
+<name>Ultraviolet</name>
+<version>1.1.3</version>
+<objective>Reach 750 points before the opposing team!</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<kits>
+    <kit id="default-kit">
+        <effect>night vision</effect>
+    </kit>
+    <kit id="spawn-kit" parents="default-kit">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" team-color="true" material="leather helmet"/>
+        <chestplate unbreakable="true" team-color="true" material="leather chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="4">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots"/>
+        <effect duration="2" amplifier="255">resistance</effect>
+    </kit>
+</kits>
+<spawns>
+    <default kit="default-kit">
+        <region yaw="-45">
+            <cuboid min="123.5,43,-43.5" max="125.5,43,-41.5"/>
+        </region>
+    </default>
+    <spawn team="blue" kit="spawn-kit">
+        <region yaw="-135">
+            <point>133.5,13,16.5</point>
+        </region>
+    </spawn>
+    <spawn team="red" kit="spawn-kit">
+        <region yaw="45">
+            <point>183.5,13,-33.5</point>
+        </region>
+    </spawn>
+</spawns>
+<regions>
+    <union id="gapple-spawner-stuff">
+        <cuboid id="gapple-spawn-drop" min="154.4,11.5,-12.4" max="154.6,11.5,-12.6"/>
+        <cuboid id="gapple-spawn-activation" min="151.1,10,-15.9" max="157.9,13,-9.1"/>
+    </union>
+    <apply block="never"/>
+</regions>
+<king>
+    <hills required="false" capture-time="5s" points="1" time-multiplier="0" show-progress="true" neutral-state="true" incremental="true" permanent="false">
+        <hill name="Top">
+            <capture>
+                <cuboid min="173,16,6" max="166,19,-1"/>
+            </capture>
+            <progress>
+                <cuboid min="173,16,6" max="166,19,-1"/>
+            </progress>
+            <captured>
+                <cuboid min="173,16,6" max="166,19,-1"/>
+            </captured>
+        </hill>
+        <hill name="Fort">
+            <capture>
+                <cuboid min="141,12,-26" max="148,15,-19"/>
+            </capture>
+            <progress>
+                <cuboid min="141,12,-26" max="148,15,-19"/>
+            </progress>
+            <captured>
+                <cuboid min="141,12,-26" max="148,15,-19"/>
+            </captured>
+        </hill>
+        <hill name="Cave">
+            <capture>
+                <cuboid min="172,7,5" max="165,10,-2"/>
+            </capture>
+            <progress>
+                <cuboid min="172,7,5" max="165,10,-2"/>
+            </progress>
+            <captured>
+                <cuboid min="172,7,5" max="165,10,-2"/>
+            </captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>750</limit>
+</score>
+<spawners>
+    <spawner id="gapple-spawner" spawn-region="gapple-spawn-drop" player-region="gapple-spawn-activation" delay="6s">
+        <item material="golden apple"/>
+    </spawner>
+</spawners>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="5" material="arrow"/>
+</kill-reward>
+<respawn delay="5s" auto="true" blackout="true"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>

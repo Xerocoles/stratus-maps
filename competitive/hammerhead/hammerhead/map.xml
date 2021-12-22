@@ -1,0 +1,160 @@
+<map proto="1.4.2">
+<name>Hammerhead</name>
+<version>1.4.4</version>
+<objective>Capture the opponent's flag as many times as possible in 12 minutes!</objective>
+<gamemode>ctf</gamemode>
+<time result="score" overtime="2m" max-overtime="6m">12m</time>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+    <contributor uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+</contributors>
+<broadcasts>
+    <tip after="5s">Tunnels are now open for the whole match!</tip>
+</broadcasts>
+<teams>
+    <team id="green" color="green" max="5" max-overfill="5">Green</team>
+    <team id="purple" color="dark purple" max="5" max-overfill="5">Purple</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="4">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots"/>
+        <effect duration="3" amplifier="255">resistance</effect>
+    </kit>
+    <kit id="green-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="64FD42" material="leather helmet"/>
+        <chestplate unbreakable="true" color="64FD42" material="leather chestplate"/>
+    </kit>
+    <kit id="purple-kit" parents="spawn-kit">
+        <helmet unbreakable="true" color="7F3FB2" material="leather helmet"/>
+        <chestplate unbreakable="true" color="7F3FB2" material="leather chestplate"/>
+    </kit>
+    <kit id="flag-kit" force="true">
+        <effect>slowness</effect>
+    </kit>
+    <kit id="reset-kit" force="true">
+        <effect duration="0" amplifier="0">slowness</effect>
+    </kit>
+</kits>
+<spawns>
+    <default>
+        <region yaw="45">
+            <cuboid min="-108.5,20.25,139.5" max="-109.5,20.25,140.5"/>
+        </region>
+    </default>
+    <spawn team="green" kit="green-kit">
+        <region yaw="0">
+            <point>-140.5,11.25,109.5</point>
+        </region>
+    </spawn>
+    <spawn team="purple" kit="purple-kit">
+        <region yaw="90">
+            <point>-78.5,11.25,171.5</point>
+        </region>
+    </spawn>
+</spawns>
+<filters>
+    <team id="only-green">green</team>
+    <team id="only-purple">purple</team>
+    <time id="flag-respawns">0</time>
+    <any id="above-or-below">
+        <not>
+            <union>
+                <cuboid min="-151.5,12,130.5" max="-153.5,14,132.5"/>
+                <cuboid min="-99.5,12,182.5" max="-101.5,14,184.5"/>
+            </union>
+        </not>
+    </any>
+</filters>
+<regions>
+    <union id="flag-nets">
+        <cuboid id="green-net" min="-153,14,131" max="-152,16,132"/>
+        <cuboid id="purple-net" min="-100,14,184" max="-101,16,183"/>
+    </union>
+    <union id="spawner-stuff">
+        <union id="gapple-spawner-stuff">
+            <cuboid id="gapple-spawn-drop" min="-128.4,12.5,159.4" max="-128.6,12.5,159.6"/>
+            <cuboid id="gapple-spawn-activation" min="-125,11,156" max="-132,14,163"/>
+        </union>
+        <union id="arrow-spawner-stuff">
+            <cuboid id="arrow-spawn-drop" min="-148.4,12.5,179.4" max="-148.6,12.5,179.6"/>
+            <cuboid id="arrow-spawn-activation" min="-151,13,182" max="-146,16,177"/>
+        </union>
+    </union>
+    <apply block="never"/>
+</regions>
+<flags flag-proximity-metric="none" net-proximity-metric="none">
+    <flag id="green-flag"
+          name="Green Flag"
+          owner="green"
+          color="lime"
+          pickup-kit="flag-kit"
+          drop-kit="reset-kit">
+        <post pickup-filter="only-purple" recover-time="12s" respawn-time="10s">-152.5,14,131.5</post>
+    </flag>
+    <flag id="purple-flag"
+          name="Purple Flag"
+          owner="purple"
+          color="purple"
+          pickup-kit="flag-kit"
+          drop-kit="reset-kit">
+        <post pickup-filter="only-green" recover-time="12s" respawn-time="10s">-100.5,14,183.5</post>
+    </flag>
+    <flags points="1">
+        <net region="green-net" flag="purple-flag" respawn-filter="flag-respawns"/>
+        <net region="purple-net" flag="green-flag" respawn-filter="flag-respawns"/>
+    </flags>
+</flags>
+<score/>
+<spawners>
+    <spawner id="gapple-spawner" spawn-region="gapple-spawn-drop" player-region="gapple-spawn-activation" delay="8s">
+        <item material="golden apple"/>
+    </spawner>
+    <spawner id="arrow-spawner" spawn-region="arrow-spawn-drop" player-region="arrow-spawn-activation" delay="2s">
+        <item material="arrow"/>
+    </spawner>
+</spawners>
+<destroyables completion="0%" required="false" show="false">
+    <destroyable name="shark-pit" owner="purple" modes="eight" materials="stained glass">
+        <region>
+            <cuboid min="-144,8,175" max="-133,9,164"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode id="eight" after="8m" material="air" name="`3Shark Pit Opens"/>
+</modes>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="5" material="arrow"/>
+</kill-reward>
+<respawn delay="8s" auto="true" blackout="true"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>
