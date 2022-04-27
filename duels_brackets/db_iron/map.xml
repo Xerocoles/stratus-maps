@@ -1,0 +1,262 @@
+<map proto="1.4.0">
+<name>DB Iron</name>
+<version>1.1.1</version>
+<objective>16 players competing in a 1v1 Iron kit bracket.</objective>
+<gamemode>blitz</gamemode>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<players min="16" max="16" max-overfill="16"/>
+<broadcasts>
+    <tip after="1s">This is a Single Elimination Bracket of Iron 1v1s.</tip>
+</broadcasts>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<kits>
+    <kit id="spawn-kit">
+        <helmet unbreakable="true" material="iron helmet"/>
+        <chestplate unbreakable="true" material="iron chestplate"/>
+        <leggings unbreakable="true" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="3" amount="5" material="arrow"/>
+    </kit>
+    <kit id="clear-kit" force="true">
+        <clear effects="true"/>
+        <health>2</health>
+    </kit>
+    <kit id="fighting-kit" force="true">
+        <helmet unbreakable="true" material="iron helmet"/>
+        <chestplate unbreakable="true" material="iron chestplate"/>
+        <leggings unbreakable="true" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="3" amount="6" material="arrow"/>
+        <health>20</health>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="180">
+        <region>
+            <cuboid min="11.5,64,34.5" max="13.5,64,32.5"/>
+        </region>
+    </default>
+    <spawn kit="spawn-kit" spread="true">
+        <regions>
+            <point yaw="-90">-62.5,4.25,-29.5</point>
+            <point yaw="90">-44.5,4.25,-29.5</point>
+            <point yaw="-90">-62.5,4.25,-9.5</point>
+            <point yaw="90">-44.5,4.25,-9.5</point>
+            <point yaw="-90">-62.5,4.25,10.5</point>
+            <point yaw="90">-44.5,4.25,10.5</point>
+            <point yaw="-90">-62.5,4.25,30.5</point>
+            <point yaw="90">-44.5,4.25,30.5</point>
+            <point yaw="90">87.5,4.25,30.5</point>
+            <point yaw="-90">69.5,4.25,30.5</point>
+            <point yaw="90">87.5,4.25,10.5</point>
+            <point yaw="-90">69.5,4.25,10.5</point>
+            <point yaw="90">87.5,4.25,-9.5</point>
+            <point yaw="-90">69.5,4.25,-9.5</point>
+            <point yaw="90">87.5,4.25,-29.5</point>
+            <point yaw="-90">69.5,4.25,-29.5</point>
+        </regions>
+    </spawn>
+</spawns>
+<portals>
+    <portal destination="hammerhead-lebronze-destination" forward="hammerhead-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="northern-lights-lebronze-destination" forward="northern-lights-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="umbra-topaz-destination" forward="umbra-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="firestorm-topaz-destination" forward="firestorm-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="ultraviolet-rusteze-destination" forward="ultraviolet-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="splinter-rusteze-destination" forward="splinter-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="eden-willow-destination" forward="eden-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="seaside-plaza-willow-destination" forward="seaside-plaza-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="lebronze-bulletwood-destination" forward="lebronze-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="topaz-bulletwood-destination" forward="topaz-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="rusteze-marzipan-destination" forward="rusteze-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="willow-marzipan-destination" forward="willow-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="bulletwood-courtyard-destination" forward="bulletwood-portal-filter" yaw="@-90" pitch="@0"/>
+    <portal destination="marzipan-courtyard-destination" forward="marzipan-portal-filter" yaw="@90" pitch="@0"/>
+</portals>
+<control-points>
+    <control-point id="hill-hammerhead" name="Hammerhead" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hammerhead-hill-region"/>
+    <control-point id="hill-northern-lights" name="Northern Lights" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="northern-lights-hill-region"/>
+    <control-point id="hill-umbra" name="Umbra" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="umbra-hill-region"/>
+    <control-point id="hill-firestorm" name="Firestorm" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="firestorm-hill-region"/>
+    <control-point id="hill-ultraviolet" name="Ultraviolet" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="ultraviolet-hill-region"/>
+    <control-point id="hill-splinter" name="Splinter" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="splinter-hill-region"/>
+    <control-point id="hill-eden" name="Eden" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="eden-hill-region"/>
+    <control-point id="hill-seaside-plaza" name="Seaside Plaza" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="seaside-plaza-hill-region"/>
+    <control-point id="hill-lebronze" name="LeBronze" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="lebronze-hill-region"/>
+    <control-point id="hill-topaz" name="Topaz" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="topaz-hill-region"/>
+    <control-point id="hill-rusteze" name="Rusteze" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="rusteze-hill-region"/>
+    <control-point id="hill-willow" name="Willow" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="willow-hill-region"/>
+    <control-point id="hill-bulletwood" name="Bulletwood" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="bulletwood-hill-region"/>
+    <control-point id="hill-marzipan" name="Marzipan" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="marzipan-hill-region"/>
+</control-points>
+<filters>
+    <all id="hammerhead-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="hammerhead-hill-region"/>
+    </all>
+    <all id="northern-lights-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="northern-lights-hill-region"/>
+    </all>
+    <all id="umbra-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="umbra-hill-region"/>
+    </all>
+    <all id="firestorm-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="firestorm-hill-region"/>
+    </all>
+    <all id="ultraviolet-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="ultraviolet-hill-region"/>
+    </all>
+    <all id="splinter-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="splinter-hill-region"/>
+    </all>
+    <all id="eden-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="eden-hill-region"/>
+    </all>
+    <all id="seaside-plaza-portal-filter">
+        <filter id="quarterfinals-start"/>
+        <region id="seaside-plaza-hill-region"/>
+    </all>
+    <all id="lebronze-portal-filter">
+        <filter id="semifinals-start"/>
+        <region id="lebronze-hill-region"/>
+    </all>
+    <all id="topaz-portal-filter">
+        <filter id="semifinals-start"/>
+        <region id="topaz-hill-region"/>
+    </all>
+    <all id="rusteze-portal-filter">
+        <filter id="semifinals-start"/>
+        <region id="rusteze-hill-region"/>
+    </all>
+    <all id="willow-portal-filter">
+        <filter id="semifinals-start"/>
+        <region id="willow-hill-region"/>
+    </all>
+    <all id="bulletwood-portal-filter">
+        <filter id="finals-start"/>
+        <region id="bulletwood-hill-region"/>
+    </all>
+    <all id="marzipan-portal-filter">
+        <filter id="finals-start"/>
+        <region id="marzipan-hill-region"/>
+    </all>
+    <all id="quarterfinals-start">
+        <objective any="true">hill-hammerhead</objective>
+        <objective any="true">hill-northern-lights</objective>
+        <objective any="true">hill-umbra</objective>
+        <objective any="true">hill-firestorm</objective>
+        <objective any="true">hill-ultraviolet</objective>
+        <objective any="true">hill-splinter</objective>
+        <objective any="true">hill-eden</objective>
+        <objective any="true">hill-seaside-plaza</objective>
+    </all>
+    <all id="semifinals-start">
+        <objective any="true">hill-lebronze</objective>
+        <objective any="true">hill-topaz</objective>
+        <objective any="true">hill-rusteze</objective>
+        <objective any="true">hill-willow</objective>
+    </all>
+    <all id="finals-start">
+        <objective any="true">hill-bulletwood</objective>
+        <objective any="true">hill-marzipan</objective>
+    </all>
+</filters>
+<regions>
+    <union id="hills">
+        <cuboid id="hammerhead-hill-region" min="-42,10,-38" max="-65,0,-21"/>
+        <cuboid id="northern-lights-hill-region" min="-42,10,-18" max="-65,0,-1"/>
+        <cuboid id="umbra-hill-region" min="-42,10,2" max="-65,0,19"/>
+        <cuboid id="firestorm-hill-region" min="-42,10,22" max="-65,0,39"/>
+        <cuboid id="ultraviolet-hill-region" min="67,10,22" max="90,0,39"/>
+        <cuboid id="splinter-hill-region" min="67,10,2" max="90,0,19"/>
+        <cuboid id="eden-hill-region" min="67,10,-18" max="90,0,-1"/>
+        <cuboid id="seaside-plaza-hill-region" min="67,10,-38" max="90,0,-21"/>
+        <cuboid id="lebronze-hill-region" min="-39,10,-8" max="-22,0,-31"/>
+        <cuboid id="topaz-hill-region" min="-39,10,32" max="-22,0,9"/>
+        <cuboid id="rusteze-hill-region" min="64,10,9" max="47,0,32"/>
+        <cuboid id="willow-hill-region" min="64,10,-31" max="47,0,-8"/>
+        <cuboid id="bulletwood-hill-region" min="-2,10,12" max="-19,0,-11"/>
+        <cuboid id="marzipan-hill-region" min="27,10,-11" max="44,0,12"/>
+    </union>
+    <union id="kit-regions">
+        <union id="kit-clearing">
+            <cuboid min="94,10,-42" max="-69,11,43"/>
+        </union>
+        <union id="kit-giving">
+            <cuboid min="94,9,-42" max="-69,10,43"/>
+        </union>
+    </union>
+    <union id="portal-regions">
+        <!--
+        <union id="portal-activation-regions">
+            <point id="hammerhead-lebronze-activation"></point>
+            <point id="northern-lights-lebronze-activation"></point>
+            <point id="umbra-topaz-activation"></point>
+            <point id="firestorm-topaz-activation"></point>
+            <point id="ultraviolet-rusteze-activation"></point>
+            <point id="splinter-rusteze-activation"></point>
+            <point id="eden-willow-activation"></point>
+            <point id="seaside-plaza-willow-activation"></point>
+            <point id="lebronze-bulletwood-activation"></point>
+            <point id="topaz-bulletwood-activation"></point>
+            <point id="rusteze-marzipan-activation"></point>
+            <point id="willow-marzipan-activation"></point>
+            <point id="bulletwood-courtyard-activation"></point>
+            <point id="marzipan-courtyard-activation"></point>
+        </union>
+        -->
+        <union id="portal-destination-regions">
+            <point id="hammerhead-lebronze-destination">-30.5,11.2,-28.5</point>
+            <point id="northern-lights-lebronze-destination">-30.5,11.2,-10.5</point>
+            <point id="umbra-topaz-destination">-30.5,11.2,11.5</point>
+            <point id="firestorm-topaz-destination">-30.5,11.2,29.5</point>
+            <point id="ultraviolet-rusteze-destination">55.5,11.2,29.5</point>
+            <point id="splinter-rusteze-destination">55.5,11.2,11.5</point>
+            <point id="eden-willow-destination">55.5,11.2,-10.5</point>
+            <point id="seaside-plaza-willow-destination">55.5,11.2,-28.5</point>
+            <point id="lebronze-bulletwood-destination">-10.5,11.2,-8.5</point>
+            <point id="topaz-bulletwood-destination">-10.5,11.2,9.5</point>
+            <point id="rusteze-marzipan-destination">35.5,11.2,9.5</point>
+            <point id="willow-marzipan-destination">35.5,11.2,-8.5</point>
+            <point id="bulletwood-courtyard-destination">3.5,11.2,0.5</point>
+            <point id="marzipan-courtyard-destination">21.5,11.2,0.5</point>
+        </union>
+    </union>
+    <apply kit="clear-kit" region="kit-clearing"/>
+    <apply kit="fighting-kit" region="kit-giving"/>
+    <apply block="never" region="everywhere"/>
+</regions>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>golden apple</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<timelock>on</timelock>
+</map>

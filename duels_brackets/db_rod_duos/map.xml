@@ -1,0 +1,351 @@
+<map proto="1.4.0">
+<name>DB Rod Duos</name>
+<version>1.0.0</version>
+<objective>16 players competing in a 2v2 Rod kit bracket.</objective>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="2" max-overfill="2">Red</team>
+    <team id="orange" color="gold" max="2" max-overfill="2">Orange</team>
+    <team id="yellow" color="yellow" max="2" max-overfill="2">Yellow</team>
+    <team id="green" color="green" max="2" max-overfill="2">Green</team>
+    <team id="cyan" color="dark aqua" max="2" max-overfill="2">Cyan</team>
+    <team id="blue" color="blue" max="2" max-overfill="2">Blue</team>
+    <team id="purple" color="dark purple" max="2" max-overfill="2">Purple</team>
+    <team id="silver" color="gray" max="2" max-overfill="2">Silver</team>
+</teams>
+<broadcasts>
+    <tip after="1s">This is a Single Elimination Bracket of Rod 2v2s.</tip>
+</broadcasts>
+<kits>
+    <kit id="spawn-kit">
+        <effect duration="oo" amplifier="5">speed</effect>
+        <effect duration="oo" amplifier="10">resistance</effect>
+        <effect duration="oo" amplifier="10">regeneration</effect>
+    </kit>
+    <kit id="clear-kit" force="true">
+        <clear effects="true"/>
+        <health>2</health>
+    </kit>
+    <kit id="fighting-kit" force="true">
+        <helmet unbreakable="true" material="leather helmet"/>
+        <chestplate unbreakable="true" material="iron chestplate"/>
+        <leggings unbreakable="true" material="leather leggings"/>
+        <boots unbreakable="true" material="leather boots"/>
+        <item slot="0" unbreakable="true" material="wood sword"/>
+        <item slot="1" unbreakable="true" material="fishing rod"/>
+        <health>20</health>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="180">
+        <region>
+            <cuboid min="11.5,64,34.5" max="13.5,64,32.5"/>
+        </region>
+    </default>
+    <spawn team="red" kit="fighting-kit" filter="beginning-spawn-filter" yaw="0">
+        <region>
+            <cuboid min="-29,4.25,-21.5" max="-32,4.25,-21.5"/>
+        </region>
+    </spawn>
+    <spawn team="orange" kit="fighting-kit" filter="beginning-spawn-filter" yaw="180">
+        <region>
+            <cuboid min="-32,4.25,-3.5" max="-29,4.25,-3.5"/>
+        </region>
+    </spawn>
+    <spawn team="yellow" kit="fighting-kit" filter="beginning-spawn-filter" yaw="0">
+        <region>
+            <cuboid min="-29,4.25,4.5" max="-32,4.25,4.5"/>
+        </region>
+    </spawn>
+    <spawn team="green" kit="fighting-kit" filter="beginning-spawn-filter" yaw="180">
+        <region>
+            <cuboid min="-32,4.25,22.5" max="-29,4.25,22.5"/>
+        </region>
+    </spawn>
+    <spawn team="cyan" kit="fighting-kit" filter="beginning-spawn-filter" yaw="180">
+        <region>
+            <cuboid min="54,4.25,22.5" max="57,4.25,22.5"/>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="fighting-kit" filter="beginning-spawn-filter" yaw="0">
+        <region>
+            <cuboid min="54,4.25,4.5" max="57,4.25,4.5"/>
+        </region>
+    </spawn>
+    <spawn team="purple" kit="fighting-kit" filter="beginning-spawn-filter" yaw="180">
+        <region>
+            <cuboid min="54,4.25,-3.5" max="57,4.25,-3.5"/>
+        </region>
+    </spawn>
+    <spawn team="silver" kit="fighting-kit" filter="beginning-spawn-filter" yaw="0">
+        <region>
+            <cuboid min="54,4.25,-21.5" max="57,4.25,-21.5"/>
+        </region>
+    </spawn>
+    <spawn team="red" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="orange" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="yellow" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="green" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="cyan" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="purple" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+    <spawn team="silver" kit="spawn-kit" filter="dead-spawn-filter" yaw="180">
+        <region>
+            <point>12.5,14.25,24.5</point>
+        </region>
+    </spawn>
+</spawns>
+<portals>
+    <portal destination="lebronze-bulletwood-destination" forward="lebronze-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="topaz-bulletwood-destination" forward="topaz-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="rusteze-marzipan-destination" forward="rusteze-portal-filter" yaw="@180" pitch="@0"/>
+    <portal destination="willow-marzipan-destination" forward="willow-portal-filter" yaw="@0" pitch="@0"/>
+    <portal destination="bulletwood-courtyard-destination" forward="bulletwood-portal-filter" yaw="@-90" pitch="@0"/>
+    <portal destination="marzipan-courtyard-destination" forward="marzipan-portal-filter" yaw="@90" pitch="@0"/>
+</portals>
+<control-points>
+    <control-point id="hill-lebronze" name="LeBronze" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="lebronze-hill-region">
+        <captured>
+            <union>
+                <cuboid min="-23,0,-24" max="-38,14,-23"/>
+                <cuboid min="-23,0,-24" max="-22,14,-1"/>
+                <cuboid min="-38,0,-1" max="-23,14,-2"/>
+                <cuboid min="-38,0,-1" max="-39,14,-24"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-topaz" name="Topaz" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="topaz-hill-region">
+        <captured>
+            <union>
+                <cuboid min="-23,0,2" max="-38,14,3"/>
+                <cuboid min="-23,0,2" max="-22,14,25"/>
+                <cuboid min="-38,0,25" max="-23,14,24"/>
+                <cuboid min="-38,0,25" max="-39,14,2"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-rusteze" name="Rusteze" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="rusteze-hill-region">
+        <captured>
+            <union>
+                <cuboid min="63,0,25" max="48,14,24"/>
+                <cuboid min="63,0,25" max="64,14,2"/>
+                <cuboid min="48,0,2" max="63,14,3"/>
+                <cuboid min="48,0,2" max="47,14,25"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-willow" name="Willow" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="willow-hill-region">
+        <captured>
+            <union>
+                <cuboid min="63,0,-1" max="48,14,-2"/>
+                <cuboid min="63,0,-1" max="64,14,-24"/>
+                <cuboid min="48,0,-24" max="63,14,-23"/>
+                <cuboid min="48,0,-24" max="47,14,-1"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-bulletwood" name="Bulletwood" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="bulletwood-hill-region">
+        <captured>
+            <union>
+                <cuboid min="-3,0,12" max="-18,14,11"/>
+                <cuboid min="-3,0,12" max="-2,14,-11"/>
+                <cuboid min="-18,0,-11" max="-3,14,-10"/>
+                <cuboid min="-18,0,-11" max="-19,14,12"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-marzipan" name="Marzipan" capture-time="2s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="marzipan-hill-region">
+        <captured>
+            <union>
+                <cuboid min="43,0,12" max="28,14,11"/>
+                <cuboid min="43,0,12" max="44,14,-11"/>
+                <cuboid min="28,0,-11" max="43,14,-10"/>
+                <cuboid min="28,0,-11" max="27,14,12"/>
+            </union>
+        </captured>
+    </control-point>
+    <control-point id="hill-courtyard" name="WIN" capture-time="1s" show="true" decay-rate="0" neutral-state="true" required="true" points="0" capture-region="courtyard-hill-region">
+        <progress>
+            <union>
+                <cuboid min="24,0,-7" max="23,14,8"/>
+                <cuboid min="24,0,-7" max="1,14,-8"/>
+                <cuboid min="1,0,8" max="2,14,-7"/>
+                <cuboid min="1,0,8" max="24,14,9"/>
+            </union>
+        </progress>
+    </control-point>
+</control-points>
+<filters>
+    <all id="lebronze-portal-filter">
+        <filter id="semifinals-start"/>
+        <captured>hill-lebronze</captured>
+    </all>
+    <all id="topaz-portal-filter">
+        <filter id="semifinals-start"/>
+        <captured>hill-topaz</captured>
+    </all>
+    <all id="rusteze-portal-filter">
+        <filter id="semifinals-start"/>
+        <captured>hill-rusteze</captured>
+    </all>
+    <all id="willow-portal-filter">
+        <filter id="semifinals-start"/>
+        <captured>hill-willow</captured>
+    </all>
+    <all id="bulletwood-portal-filter">
+        <filter id="finals-start"/>
+        <captured>hill-bulletwood</captured>
+    </all>
+    <all id="marzipan-portal-filter">
+        <filter id="finals-start"/>
+        <captured>hill-marzipan</captured>
+    </all>
+    <all id="semifinals-start">
+        <objective any="true">hill-lebronze</objective>
+        <objective any="true">hill-topaz</objective>
+        <objective any="true">hill-rusteze</objective>
+        <objective any="true">hill-willow</objective>
+    </all>
+    <all id="finals-start">
+        <objective any="true">hill-bulletwood</objective>
+        <objective any="true">hill-marzipan</objective>
+    </all>
+    <not id="beginning-spawn-filter">
+        <all id="dead-spawn-filter">
+            <time>1s</time>
+        </all>
+    </not>
+</filters>
+<regions>
+    <union id="hills">
+        <cuboid id="lebronze-hill-region" min="-39,10,-1" max="-22,0,-24"/>
+        <cuboid id="topaz-hill-region" min="-39,10,25" max="-22,0,2"/>
+        <cuboid id="rusteze-hill-region" min="64,10,2" max="47,0,25"/>
+        <cuboid id="willow-hill-region" min="64,10,-24" max="47,0,-1"/>
+        <cuboid id="bulletwood-hill-region" min="-2,10,12" max="-19,0,-11"/>
+        <cuboid id="marzipan-hill-region" min="27,10,-11" max="44,0,12"/>
+        <cuboid id="courtyard-hill-region" min="1,10,-8" max="24,0,9"/>
+    </union>
+    <union id="kit-regions">
+        <union id="kit-clearing">
+            <cuboid min="68,10,-28" max="-43,11,29"/>
+        </union>
+        <union id="kit-giving">
+            <cuboid min="68,9,-28" max="-43,10,29"/>
+        </union>
+    </union>
+    <union id="portal-regions">
+        <union id="portal-destination-regions">
+            <cuboid id="lebronze-bulletwood-destination" min="-9,11.2,-8.5" max="-12,11.2,-8.5"/>
+            <cuboid id="topaz-bulletwood-destination" min="-9,11.2,9.5" max="-12,11.2,9.5"/>
+            <cuboid id="rusteze-marzipan-destination" min="37,11.2,9.5" max="34,11.2,9.5"/>
+            <cuboid id="willow-marzipan-destination" min="37,11.2,-8.5" max="34,11.2,-8.5"/>
+            <cuboid id="bulletwood-courtyard-destination" min="3.5,11.2,-1" max="3.5,11.2,2"/>
+            <cuboid id="marzipan-courtyard-destination" min="21.5,11.2,-1" max="21.5,11.2,2"/>
+        </union>
+    </union>
+    <apply kit="clear-kit" region="kit-clearing"/>
+    <apply kit="fighting-kit" region="kit-giving"/>
+    <apply block="never" region="everywhere"/>
+</regions>
+<itemremove>
+    <item>wood sword</item>
+    <item>fishing rod</item>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<timelock>on</timelock>
+<!--
+<kit id="eliminated-kit" force="true">
+    <effect duration="oo" amplifier="5">speed</effect>
+    <effect duration="oo" amplifier="10">resistance</effect>
+    <effect duration="oo" amplifier="10">regeneration</effect>
+</kit>
+-->
+<!--
+<portal destination="red-duo-spawn" forward="" yaw="@0" pitch="@0"/>
+<portal destination="orange-duo-spawn" forward="" yaw="@180" pitch="@0"/>
+<portal destination="yellow-duo-spawn" forward="" yaw="@0" pitch="@0"/>
+<portal destination="green-duo-spawn" forward="" yaw="@180" pitch="@0"/>
+<portal destination="cyan-duo-spawn" forward="" yaw="@180" pitch="@0"/>
+<portal destination="blue-duo-spawn" forward="" yaw="@0" pitch="@0"/>
+<portal destination="purple-duo-spawn" forward="" yaw="@180" pitch="@0"/>
+<portal destination="silver-duo-spawn" forward="" yaw="@0" pitch="@0"/>
+-->
+<!--
+<union id="portal-activation-regions">
+    <cuboid id="red-pad" min="1,14,-21" max="6,15,-26"/>
+    <cuboid id="orange-pad" min="1,14,22" max="6,15,27"/>
+    <cuboid id="yellow-pad" min="7,14,-21" max="12,15,-26"/>
+    <cuboid id="green-pad" min="7,14,22" max="12,15,27"/>
+    <cuboid id="cyan-pad" min="13,14,-21" max="18,15,-26"/>
+    <cuboid id="blue-pad" min="13,14,22" max="18,15,27"/>
+    <cuboid id="purple-pad" min="19,14,-21" max="24,15,-26"/>
+    <cuboid id="pink-pad" min="19,14,22" max="24,15,27"/>
+</union>
+-->
+<!--
+<cuboid id="red-duo-spawn" min="-29,4.25,-21.5" max="-32,4.25,-21.5"/>
+<cuboid id="orange-duo-spawn" min="-32,4.25,-3.5" max="-29,4.25,-3.5"/>
+<cuboid id="yellow-duo-spawn" min="-29,4.25,4.5" max="-32,4.25,4.5"/>
+<cuboid id="green-duo-spawn" min="-32,4.25,22.5" max="-29,4.25,22.5"/>
+<cuboid id="cyan-duo-spawn" min="54,4.25,22.5" max="57,4.25,22.5"/>
+<cuboid id="blue-duo-spawn" min="54,4.25,4.5" max="57,4.25,4.5"/>
+<cuboid id="purple-duo-spawn" min="54,4.25,-3.5" max="57,4.25,-3.5"/>
+<cuboid id="silver-duo-spawn" min="54,4.25,-21.5" max="57,4.25,-21.5"/>
+-->
+<!--
+<point id="hammerhead-lebronze-activation"></point>
+<point id="northern-lights-lebronze-activation"></point>
+<point id="umbra-topaz-activation"></point>
+<point id="firestorm-topaz-activation"></point>
+<point id="ultraviolet-rusteze-activation"></point>
+<point id="splinter-rusteze-activation"></point>
+<point id="eden-willow-activation"></point>
+<point id="seaside-plaza-willow-activation"></point>
+<point id="lebronze-bulletwood-activation"></point>
+<point id="topaz-bulletwood-activation"></point>
+<point id="rusteze-marzipan-activation"></point>
+<point id="willow-marzipan-activation"></point>
+<point id="bulletwood-courtyard-activation"></point>
+<point id="marzipan-courtyard-activation"></point>
+-->
+</map>
