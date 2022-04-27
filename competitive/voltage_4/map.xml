@@ -1,0 +1,266 @@
+<map proto="1.4.0">
+<name>Voltage 4</name>
+<version>1.0.2</version>
+<objective>Eliminate the other team in 1v1s of variouts kits.</objective>
+<gamemode>blitz</gamemode>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<broadcasts>
+    <tip after="1s">This is five individual 1v1 matches, of various kits.</tip>
+</broadcasts>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<kits>
+    <kit id="red-archer-kit" force="true">
+        <chestplate unbreakable="true" enchantment="projectile_protection:2" color="993333" material="leather chestplate"/>
+        <item slot="0" unbreakable="true" enchantment="infinity" material="bow"/>
+        <item slot="1" material="arrow"/>
+    </kit>
+    <kit id="blue-archer-kit" force="true">
+        <chestplate unbreakable="true" enchantment="projectile_protection:2" color="334CB2" material="leather chestplate"/>
+        <item slot="0" unbreakable="true" enchantment="infinity" material="bow"/>
+        <item slot="1" material="arrow"/>
+    </kit>
+    <kit id="red-knockback-kit" force="true">
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <item slot="0" enchantment="knockback" material="stick"/>
+    </kit>
+    <kit id="blue-knockback-kit" force="true">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <item slot="0" enchantment="knockback" material="stick"/>
+    </kit>
+    <kit id="red-sumo-kit" force="true">
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+    </kit>
+    <kit id="blue-sumo-kit" force="true">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+    </kit>
+    <kit id="red-iron-kit" force="true">
+        <helmet unbreakable="true" material="iron helmet"/>
+        <chestplate unbreakable="true" material="iron chestplate"/>
+        <leggings unbreakable="true" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+    </kit>
+    <kit id="blue-iron-kit" force="true">
+        <helmet unbreakable="true" material="iron helmet"/>
+        <chestplate unbreakable="true" material="iron chestplate"/>
+        <leggings unbreakable="true" material="iron leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+    </kit>
+    <kit id="red-conquest-kit" force="true">
+        <helmet unbreakable="true" color="993333" material="leather helmet"/>
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="3" amount="4" material="arrow"/>
+    </kit>
+    <kit id="blue-conquest-kit" force="true">
+        <helmet unbreakable="true" color="334CB2" material="leather helmet"/>
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings"/>
+        <boots unbreakable="true" material="iron boots"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="3" amount="4" material="arrow"/>
+    </kit>
+    <kit id="void-death" force="true">
+        <health>1</health>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="180">
+        <region>
+            <cuboid min="-22.5,39,133.5" max="-20.5,39,131.5"/>
+        </region>
+    </default>
+    <spawn spread="true" team="red" yaw="90">
+        <regions>
+            <point>-6.5,10.1,116.5</point>
+            <point>-6.5,10.1,124.5</point>
+            <point>-6.5,10.1,132.5</point>
+            <point>-6.5,10.1,140.5</point>
+            <point>-6.5,10.1,148.5</point>
+        </regions>
+    </spawn>
+    <spawn spread="true" team="blue" yaw="-90">
+        <regions>
+            <point>-36.5,10.1,148.5</point>
+            <point>-36.5,10.1,140.5</point>
+            <point>-36.5,10.1,132.5</point>
+            <point>-36.5,10.1,124.5</point>
+            <point>-36.5,10.1,116.5</point>
+        </regions>
+    </spawn>
+</spawns>
+<portals>
+    <!-- Red's Portals -->
+    <portal region="red-p1-spawn" destination="red-p1-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p2-spawn" destination="red-p2-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p3-spawn" destination="red-p3-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p4-spawn" destination="red-p4-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p5-spawn" destination="red-p5-fight" yaw="@90" pitch="@0"/>
+    <!-- Blue's Portals -->
+    <portal region="blue-p1-spawn" destination="blue-p1-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p2-spawn" destination="blue-p2-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p3-spawn" destination="blue-p3-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p4-spawn" destination="blue-p4-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p5-spawn" destination="blue-p5-fight" yaw="@-90" pitch="@0"/>
+    <!-- Quickened Void Death Portal -->
+    <portal y="-64" sound="false">
+        <region><below y="-5"/></region>
+    </portal>
+</portals>
+<control-points>
+    <control-point id="hill-a" name="Hill A" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-a-region"/>
+    <control-point id="hill-b" name="Hill B" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-b-region"/>
+    <control-point id="hill-c" name="Hill C" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-c-region"/>
+    <control-point id="hill-d" name="Hill D" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-d-region"/>
+    <control-point id="hill-e" name="Hill E" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-e-region"/>
+    <control-point id="win-hill" name="WIN" player-filter="win-condition" capture-rule="majority" capture-time="0s" show="true" decay-rate="0" show-progress="false" neutral-state="true" required="true" points="0" capture-region="everywhere"/>
+</control-points>
+<filters>
+    <all id="win-condition">
+        <objective any="true">hill-a</objective>
+        <objective any="true">hill-b</objective>
+        <objective any="true">hill-c</objective>
+        <objective any="true">hill-d</objective>
+        <objective any="true">hill-e</objective>
+    </all>
+</filters>
+<regions>
+    <union id="arena-hills">
+        <rectangle id="hill-a-region" min="-13,120" max="-30,113"/>
+        <rectangle id="hill-b-region" min="-13,128" max="-30,121"/>
+        <rectangle id="hill-c-region" min="-13,136" max="-30,129"/>
+        <rectangle id="hill-d-region" min="-13,144" max="-30,137"/>
+        <rectangle id="hill-e-region" min="-13,152" max="-30,145"/>
+    </union>
+    <union id="kit-regions">
+        <union id="archer-region">
+            <cuboid id="red-archer-region" min="-5,8,115" max="-8,10,118"/>
+            <cuboid id="blue-archer-region" min="-35,8,115" max="-38,10,118"/>
+        </union>
+        <union id="knockback-region">
+            <cuboid id="red-knockback-region" min="-5,8,123" max="-8,10,126"/>
+            <cuboid id="blue-knockback-region" min="-35,8,123" max="-38,10,126"/>
+        </union>
+        <union id="sumo-region">
+            <cuboid id="red-sumo-region" min="-5,8,131" max="-8,10,134"/>
+            <cuboid id="blue-sumo-region" min="-35,8,131" max="-38,10,134"/>
+        </union>
+        <union id="iron-region">
+            <cuboid id="red-iron-region" min="-5,8,139" max="-8,10,142"/>
+            <cuboid id="blue-iron-region" min="-35,8,139" max="-38,10,142"/>
+        </union>
+        <union id="conquest-region">
+            <cuboid id="red-conquest-region" min="-5,8,147" max="-8,10,150"/>
+            <cuboid id="blue-conquest-region" min="-35,8,147" max="-38,10,150"/>
+        </union>
+    </union>
+    <union id="portals">
+        <union id="portal-spawns">
+            <!-- Red's Portals' Activation Regions -->
+            <cuboid id="red-p1-spawn" min="-5,4,114" max="-9,6,119"/>
+            <cuboid id="red-p2-spawn" min="-5,4,122" max="-9,6,127"/>
+            <cuboid id="red-p3-spawn" min="-5,4,130" max="-9,6,135"/>
+            <cuboid id="red-p4-spawn" min="-5,4,138" max="-9,6,143"/>
+            <cuboid id="red-p5-spawn" min="-5,4,146" max="-9,6,151"/>
+            <!-- Blue's Portals' Activation Regions -->
+            <cuboid id="blue-p1-spawn" min="-34,4,151" max="-38,6,146"/>
+            <cuboid id="blue-p2-spawn" min="-34,4,143" max="-38,6,138"/>
+            <cuboid id="blue-p3-spawn" min="-34,4,135" max="-38,6,130"/>
+            <cuboid id="blue-p4-spawn" min="-34,4,127" max="-38,6,122"/>
+            <cuboid id="blue-p5-spawn" min="-34,4,119" max="-38,6,114"/>
+        </union>
+        <union id="portal-fights">
+            <!-- Red's Portals' Destination Regions -->
+            <point id="red-p1-fight">-15.5,5.25,116.5</point>
+            <point id="red-p2-fight">-15.5,5.25,124.5</point>
+            <point id="red-p3-fight">-15.5,5.25,132.5</point>
+            <point id="red-p4-fight">-15.5,5.25,140.5</point>
+            <point id="red-p5-fight">-15.5,5.25,148.5</point>
+            <!-- Blue's Portals' Destination Regions -->
+            <point id="blue-p1-fight">-27.5,5.25,148.5</point>
+            <point id="blue-p2-fight">-27.5,5.25,140.5</point>
+            <point id="blue-p3-fight">-27.5,5.25,132.5</point>
+            <point id="blue-p4-fight">-27.5,5.25,124.5</point>
+            <point id="blue-p5-fight">-27.5,5.25,116.5</point>
+        </union>
+    </union>
+    <apply kit="red-archer-kit" region="red-archer-region"/>
+    <apply kit="blue-archer-kit" region="blue-archer-region"/>
+    <apply kit="red-knockback-kit" region="red-knockback-region"/>
+    <apply kit="blue-knockback-kit" region="blue-knockback-region"/>
+    <apply kit="red-sumo-kit" region="red-sumo-region"/>
+    <apply kit="blue-sumo-kit" region="blue-sumo-region"/>
+    <apply kit="red-iron-kit" region="red-iron-region"/>
+    <apply kit="blue-iron-kit" region="blue-iron-region"/>
+    <apply kit="red-conquest-kit" region="red-conquest-region"/>
+    <apply kit="blue-conquest-kit" region="blue-conquest-region"/>
+    <apply kit="void-death">
+        <region><below y="-2"/></region>
+    </apply>
+    <!--
+    <apply region="archer-region" message="You are competing in Archer."/>
+    <apply region="knockback-region" message="You are competing in Knockback."/>
+    <apply region="sumo-region" message="You are competing in Sumo."/>
+    <apply region="iron-region" message="You are competing in Iron."/>
+    <apply region="conquest-region" message="You are competing in Conquest."/>
+    -->
+    <apply block="never" region="everywhere"/>
+</regions>
+<!--
+<proximity-alarms>
+    <proximity-alarm message="You are competing in Archer." flare-radius="0" region="archer-region"/>
+    <proximity-alarm message="You are competing in Knockback." flare-radius="0" region="knockback-region"/>
+    <proximity-alarm message="You are competing in Sumo." flare-radius="0" region="sumo-region"/>
+    <proximity-alarm message="You are competing in Iron." flare-radius="0" region="iron-region"/>
+    <proximity-alarm message="You are competing in Conquest." flare-radius="0" region="conquest-region"/>
+</proximity-alarms>
+-->
+<destroyables completion="0%" required="false" show="false">
+    <destroyable name="spawn-drop" owner="red" mode-changes="true" materials="glass">
+        <region>
+            <cuboid min="-5,13,115" max="-38,8,150"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="10s" material="air" show-before="10s" name="`3Your fight begins"/>
+</modes>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+    <item>stick</item>
+    <item>wood sword</item>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<timelock>on</timelock>
+</map>

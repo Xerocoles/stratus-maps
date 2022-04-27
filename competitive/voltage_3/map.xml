@@ -1,0 +1,153 @@
+<map proto="1.4.0">
+<name>Voltage 3</name>
+<version>1.0.2</version>
+<objective>Eliminate the other team in 1v1 sumo matches.</objective>
+<gamemode>blitz</gamemode>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<broadcasts>
+    <tip after="1s">This is five individual 1v1 sumo matches.</tip>
+</broadcasts>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<kits>
+    <kit id="red-kit">
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+    </kit>
+    <kit id="blue-kit">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+    </kit>
+    <kit id="void-death" force="true">
+        <health>1</health>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="180">
+        <region>
+            <cuboid min="74.5,39,133.5" max="76.5,39,131.5"/>
+        </region>
+    </default>
+    <spawn spread="true" team="red" kit="red-kit" yaw="90">
+        <regions>
+            <point>90.5,9.1,116.5</point>
+            <point>90.5,9.1,124.5</point>
+            <point>90.5,9.1,132.5</point>
+            <point>90.5,9.1,140.5</point>
+            <point>90.5,9.1,148.5</point>
+        </regions>
+    </spawn>
+    <spawn spread="true" team="blue" kit="blue-kit" yaw="-90">
+        <regions>
+            <point>60.5,9.1,148.5</point>
+            <point>60.5,9.1,140.5</point>
+            <point>60.5,9.1,132.5</point>
+            <point>60.5,9.1,124.5</point>
+            <point>60.5,9.1,116.5</point>
+        </regions>
+    </spawn>
+</spawns>
+<portals>
+    <!-- Red's Portals -->
+    <portal region="red-p1-spawn" destination="red-p1-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p2-spawn" destination="red-p2-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p3-spawn" destination="red-p3-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p4-spawn" destination="red-p4-fight" yaw="@90" pitch="@0"/>
+    <portal region="red-p5-spawn" destination="red-p5-fight" yaw="@90" pitch="@0"/>
+    <!-- Blue's Portals -->
+    <portal region="blue-p1-spawn" destination="blue-p1-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p2-spawn" destination="blue-p2-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p3-spawn" destination="blue-p3-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p4-spawn" destination="blue-p4-fight" yaw="@-90" pitch="@0"/>
+    <portal region="blue-p5-spawn" destination="blue-p5-fight" yaw="@-90" pitch="@0"/>
+    <!-- Quickened Void Death Portal -->
+    <portal y="-64" sound="false">
+        <region><below y="-5"/></region>
+    </portal>
+</portals>
+<control-points>
+    <control-point id="hill-a" name="Hill A" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-a-region"/>
+    <control-point id="hill-b" name="Hill B" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-b-region"/>
+    <control-point id="hill-c" name="Hill C" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-c-region"/>
+    <control-point id="hill-d" name="Hill D" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-d-region"/>
+    <control-point id="hill-e" name="Hill E" capture-time="1s" show="false" decay-rate="0" show-progress="false" neutral-state="true" required="false" points="0" capture-region="hill-e-region"/>
+    <control-point id="win-hill" name="WIN" player-filter="win-condition" capture-rule="majority" capture-time="0s" show="true" decay-rate="0" show-progress="false" neutral-state="true" required="true" points="0" capture-region="everywhere"/>
+</control-points>
+<filters>
+    <all id="win-condition">
+        <objective any="true">hill-a</objective>
+        <objective any="true">hill-b</objective>
+        <objective any="true">hill-c</objective>
+        <objective any="true">hill-d</objective>
+        <objective any="true">hill-e</objective>
+    </all>
+</filters>
+<regions>
+    <union id="arena-hills">
+        <rectangle id="hill-a-region" min="84,120" max="67,113"/>
+        <rectangle id="hill-b-region" min="84,128" max="67,121"/>
+        <rectangle id="hill-c-region" min="84,136" max="67,129"/>
+        <rectangle id="hill-d-region" min="84,144" max="67,137"/>
+        <rectangle id="hill-e-region" min="84,152" max="67,145"/>
+    </union>
+    <union id="portals">
+        <union id="portal-spawns">
+            <!-- Red's Portals' Activation Regions -->
+            <cuboid id="red-p1-spawn" min="92,4,115" max="89,6,118"/>
+            <cuboid id="red-p2-spawn" min="92,4,123" max="89,6,126"/>
+            <cuboid id="red-p3-spawn" min="92,4,131" max="89,6,134"/>
+            <cuboid id="red-p4-spawn" min="92,4,139" max="89,6,142"/>
+            <cuboid id="red-p5-spawn" min="92,4,147" max="89,6,150"/>
+            <!-- Blue's Portals' Activation Regions -->
+            <cuboid id="blue-p1-spawn" min="59,4,150" max="62,6,147"/>
+            <cuboid id="blue-p2-spawn" min="59,4,142" max="62,6,139"/>
+            <cuboid id="blue-p3-spawn" min="59,4,134" max="62,6,131"/>
+            <cuboid id="blue-p4-spawn" min="59,4,126" max="62,6,123"/>
+            <cuboid id="blue-p5-spawn" min="59,4,118" max="62,6,115"/>
+        </union>
+        <union id="portal-fights">
+            <!-- Red's Portals' Destination Regions -->
+            <point id="red-p1-fight">81.5,5.25,116.5</point>
+            <point id="red-p2-fight">81.5,5.25,124.5</point>
+            <point id="red-p3-fight">81.5,5.25,132.5</point>
+            <point id="red-p4-fight">81.5,5.25,140.5</point>
+            <point id="red-p5-fight">81.5,5.25,148.5</point>
+            <!-- Blue's Portals' Destination Regions -->
+            <point id="blue-p1-fight">69.5,5.25,148.5</point>
+            <point id="blue-p2-fight">69.5,5.25,140.5</point>
+            <point id="blue-p3-fight">69.5,5.25,132.5</point>
+            <point id="blue-p4-fight">69.5,5.25,124.5</point>
+            <point id="blue-p5-fight">69.5,5.25,116.5</point>
+        </union>
+    </union>
+    <apply kit="void-death">
+        <region><below y="-2"/></region>
+    </apply>
+    <apply block="never" region="everywhere"/>
+</regions>
+<destroyables completion="0%" required="false" show="false">
+    <destroyable name="spawn-drop" owner="red" mode-changes="true" materials="glass">
+        <region>
+            <cuboid min="92,12,115" max="59,8,150"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="10s" material="air" show-before="10s" name="`3Your fight begins"/>
+</modes>
+<itemremove>
+    <item>leather chestplate</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<timelock>on</timelock>
+</map>

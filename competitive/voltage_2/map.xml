@@ -1,0 +1,76 @@
+<map proto="1.4.0">
+<name>Voltage 2</name>
+<version>1.0.8</version>
+<objective>Eliminate the other team.</objective>
+<gamemode>blitz</gamemode>
+<authors>
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<teams>
+    <team id="red" color="light purple" max="5" max-overfill="5">Pink</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<time>2m</time>
+<kits>
+    <kit id="red-kit">
+        <chestplate unbreakable="true" color="b24cd8" material="leather chestplate"/>
+    </kit>
+    <kit id="blue-kit">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+    </kit>
+    <kit id="kill-effect" force="true">
+        <potion duration="120">wither</potion>
+        <potion duration="120">poison</potion>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="-45">
+        <region>
+            <cuboid min="373.5,21,91.5" max="377.5,21,95.5"/>
+        </region>
+    </default>
+    <spawn team="red" kit="red-kit" yaw="45">
+        <region>
+            <cuboid min="417.5,40,89.5" max="415.5,38,91.5"/>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" yaw="-135">
+        <region>
+            <cuboid min="372.5,40,135.5" max="374.5,38,133.5"/>
+        </region>
+    </spawn>
+</spawns>
+<regions>
+    <union id="edges">
+        <cuboid min="369,27,128" max="375,23,107"/>
+        <cuboid min="380,27,139" max="401,23,133"/>
+        <cuboid min="421,27,98" max="415,23,111"/>
+        <cuboid min="410,27,87" max="389,23,93"/>
+    </union>
+    <apply velocity="-1.65,2.5,1.65">
+        <region>
+            <cuboid min="420.5,24,87.5" max="413.5,29,94.5"/>
+        </region>
+    </apply>
+    <apply velocity="1.65,2.5,-1.65">
+        <region>
+            <cuboid min="369.5,24,138.5" max="376.5,29,131.5"/>
+        </region>
+    </apply>
+    <apply kit="kill-effect" region="edges"/>
+    <apply block="never" region="everywhere"/>
+</regions>
+<itemremove>
+    <item>leather chestplate</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<timelock>on</timelock>
+</map>
