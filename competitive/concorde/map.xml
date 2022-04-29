@@ -1,0 +1,121 @@
+<map proto="1.4.2">
+<name>Concorde</name>
+<version>1.0.2</version>
+<objective>Reach 750 points before the opposing team!</objective>
+<authors>
+    <author uuid="b8add1ba-8e13-4673-bc73-4e3ed524d40e"/> <!-- Blazy -->
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerocoles -->
+</authors>
+<contributors>
+    <contributor uuid="e5fd0dca-99c1-4bdf-9d1d-1aca77dc30fc"/> <!-- Heldius -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="5" max-overfill="5">Red</team>
+    <team id="blue" color="blue" max="5" max-overfill="5">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn-kit">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="12" material="arrow"/>
+        <helmet unbreakable="true" team-color="true" material="leather helmet"/>
+        <chestplate unbreakable="true" team-color="true" material="leather chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="4">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots"/>
+        <effect duration="2" amplifier="255">resistance</effect>
+    </kit>
+</kits>
+<spawns>
+    <default>
+        <region yaw="90">
+            <cuboid min="32.5,29.5,60.5" max="31.5,29.5,56.5"/>
+        </region>
+    </default>
+    <spawn team="blue" kit="spawn-kit">
+        <region yaw="180">
+            <point>6.5,7.25,103.5</point>
+        </region>
+    </spawn>
+    <spawn team="red" kit="spawn-kit">
+        <region yaw="0">
+            <point>6.5,7.25,13.5</point>
+        </region>
+    </spawn>
+</spawns>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <deny id="deny-trapdoors">
+        <material>trap door</material>
+    </deny>
+</filters>
+<regions>
+    <apply use="deny-trapdoors" block="never"/>
+</regions>
+<king>
+    <hills required="false" capture-time="5s" points="1" time-multiplier="0" show-progress="true" neutral-state="true" incremental="true" permanent="false">
+        <hill name="Tower"> <!-- Eiffel Tower -->
+            <capture>
+                <cuboid min="-18,9,62" max="-11,12,55"/>
+            </capture>
+            <progress>
+                <cuboid min="-18,9,62" max="-11,12,55"/>
+            </progress>
+            <captured>
+                <cuboid min="-18,9,62" max="-11,12,55"/>
+            </captured>
+        </hill>
+        <hill name="Mid"> <!-- Caverns Mid Area -->
+            <capture>
+                <cuboid min="10,4,55" max="3,7,62"/>
+            </capture>
+            <progress>
+                <cuboid min="10,4,55" max="3,7,62"/>
+            </progress>
+            <captured>
+                <cuboid min="10,4,55" max="3,7,62"/>
+            </captured>
+        </hill>
+        <hill name="Arch"> <!-- Arc de Triomphe -->
+            <capture>
+                <cuboid min="31,9,55" max="24,12,62"/>
+            </capture>
+            <progress>
+                <cuboid min="31,9,55" max="24,12,62"/>
+            </progress>
+            <captured>
+                <cuboid min="31,9,55" max="24,12,62"/>
+            </captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>750</limit>
+</score>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="5" material="arrow"/>
+</kill-reward>
+<respawn delay="4s" auto="true" blackout="true"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>
