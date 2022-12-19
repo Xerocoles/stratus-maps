@@ -1,0 +1,221 @@
+<map proto="1.4.2">
+<name>Moonshine</name>
+<version>1.1.7</version>
+<objective>Score 7 points to win!</objective>
+<authors>
+    <author uuid="621b2aa8-4e5f-4ed8-bd36-0ae2f8952a06"/> <!-- Strangey -->
+    <author uuid="0c44ca5a-6a42-49b7-81f2-58dc6d2ae3e9"/> <!-- Xerorca -->
+    <author uuid="b8add1ba-8e13-4673-bc73-4e3ed524d40e"/> <!-- Blazy -->
+    <author uuid="74948888-fdb8-4446-9340-f7688c2435cc"/> <!-- Zero_Frosty -->
+</authors>
+<contributors>
+    <contributor uuid="430ec559-364a-4363-ac7a-2529050440ac"/> <!-- mameBT -->
+    <contributor uuid="e2d2c2c6-cea9-4510-9ab2-a091b5605b30" contribution="XML framework"/> <!-- Ruediger_LP -->
+</contributors>
+<teams>
+    <team id="blue" color="blue" max="5" max-owerfill="5">Blue</team>
+    <team id="red" color="dark red" max="5" max-owerfill="5">Red</team>
+</teams>
+<kits>
+    <kit id="default-kit">
+        <effect>night vision</effect>
+    </kit>
+    <kit id="spawn-resistance">
+        <effect amplifier="255">damage resistance</effect>
+    </kit>
+    <kit id="spawn-kit" parents="default-kit,spawn-resistance" force="true">
+        <clear/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" material="golden apple"/>
+        <item slot="8" amount="10" material="arrow"/>
+        <helmet unbreakable="true" team-color="true" material="leather helmet"/>
+        <chestplate unbreakable="true" team-color="true" material="leather chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings">
+            <enchantment level="4">projectile_protection</enchantment>
+        </leggings>
+        <boots unbreakable="true" material="iron boots"/>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <kit id="waiting-kit" parents="default-kit,spawn-resistance" force="true">
+        <clear/>
+        <effect duration="1s" amplifier="20">regeneration</effect>
+        <effect duration="0s">absorption</effect>
+        <game-mode>adventure</game-mode>
+    </kit>
+    <give kit="waiting-kit" filter="team-scored"/>
+    <give kit="spawn-kit" filter="waiting-boxes-occupied"/>
+    <take kit="spawn-resistance" filter="not-spawns"/>
+</kits>
+<spawns>
+    <default kit="default-kit">
+        <region yaw="180">
+            <point>0,51,44.5</point>
+        </region>
+    </default>
+    <spawn team="blue" kit="spawn-kit" filter="match-start">
+        <region yaw="-90">
+            <point id="blue-spawn">-48.5,35,4.5</point>
+        </region>
+    </spawn>
+    <spawn team="red" kit="spawn-kit" filter="match-start">
+        <region yaw="90">
+            <point id="red-spawn">48.5,35,4.5</point>
+        </region>
+    </spawn>
+    <spawn team="blue" kit="waiting-kit" filter="pending-respawn">
+        <region yaw="-90">
+            <point id="blue-pending-spawn">-48.5,38,4.5</point>
+        </region>
+    </spawn>
+    <spawn team="red" kit="waiting-kit" filter="pending-respawn">
+        <region yaw="90">
+            <point id="red-pending-spawn">48.5,38,4.5</point>
+        </region>
+    </spawn>
+</spawns>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <!-- If a team scores, we filter everyone who is participating for the portal to waiting boxes. -->
+    <all id="team-scored">
+        <participating/>
+        <any>
+            <objective any="true">hill</objective>
+            <objective any="true">full-control-point</objective>
+        </any>
+    </all>
+    <!-- Once both waiting boxes are occupied, we filter all participating players and teleport them to their actual spawn points. -->
+    <all id="waiting-boxes-occupied">
+        <participating/>
+        <objective any="true">all-blue-in-waiting-box</objective>
+        <objective any="true">all-red-in-waiting-box</objective>
+    </all>
+    <!-- The waiting box control points can only be captured when no players are in the playing field. Two control points, one for each team both composed of everywhere but the waiting boxes, will decay once no one is in the playing field to permit capturing the waiting box control points. -->
+    <not id="playing-field-not-occupied">
+        <any>
+            <objective any="true">blue-in-playing-field</objective>
+            <objective any="true">red-in-playing-field</objective>
+        </any>
+    </not>
+    <!-- Filter the playing field control points to prevent a team capturing both the main hill and the hill captured when the enemy team is eliminated. -->
+    <all id="playing-field-occupied-by-both-teams">
+        <objective any="true">blue-in-playing-field</objective>
+        <objective any="true">red-in-playing-field</objective>
+    </all>
+    <!-- Spawn players at the default spawn at match start -->
+    <not id="match-start">
+        <time id="after-1s">1s</time>
+    </not>
+    <!-- If a player dies during a round, they will be able to spectate in the respawn screen until the round is over -->
+    <all id="pending-respawn">
+        <filter id="after-1s"/>
+        <filter id="playing-field-not-occupied"/>
+    </all>
+    <all id="not-spawns">
+        <participating/>
+        <not>
+            <region id="spawns"/>
+        </not>
+    </all>
+    <any id="items-and-arrows">
+        <entity>dropped item</entity>
+        <entity>arrow</entity>
+    </any>
+</filters>
+<actions>
+    <kill-entities id="clear-items" filter="items-and-arrows"/>
+    <trigger filter="playing-field-not-occupied" trigger="clear-items" scope="match"/>
+</actions>
+<regions>
+    <cuboid id="hill-region" min="-7,7,-6" max="7,11,8"/>
+    <below id="full-control-region" y="26"/>
+    <union id="spawns">
+        <cylinder id="blue-spawn-tower" base="-48.5,0,4.5" radius="6.5" height="oo"/>
+        <cylinder id="red-spawn-tower" base="48.5,0,4.5" radius="6.5" height="oo"/>
+    </union>
+    <complement id="outside-waiting-box">
+        <everywhere/>
+        <union id="blue-waiting-box">
+            <cuboid min="-51,38,-1" max="-46,42,10"/>
+            <cuboid min="-54,38,2" max="-43,42,7"/>
+        </union>
+        <union id="red-waiting-box">
+            <cuboid min="51,38,-1" max="46,42,10"/>
+            <cuboid min="54,38,2" max="43,42,7"/>
+        </union>
+    </complement>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy's spawn!"/>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy's spawn!"/>
+    <apply block="never" use="never"/>
+</regions>
+<!-- The two control points below decide who wins a round. If a team captures the hill, they win the round with the first control point, however if they eliminate the enemy team they win the round with the second control point. -->
+<control-points decay-rate="1.2" contested-rate="0" recovery-rate="1" owned-decay-rate="19" capture-time="19s" show-progress="true" neutral-state="true" points="1" required="false">
+    <!-- The filter on this point prevents a team from capturing both the main hill and the full control point so they don't manage to score twice. -->
+    <control-point id="hill" name="Hill" capture="hill-region" progress="hill-region" player-filter="playing-field-occupied-by-both-teams"/>
+</control-points>
+<control-points show="false" decay-rate="0.1" recovery-rate="1" owned-decay-rate="2.5" capture-time="2.5s" show-progress="true" neutral-state="true" points="1" required="false">
+    <control-point id="full-control-point" name="Full Control" capture="full-control-region"/>
+</control-points>
+<score display-discretely="true">
+    <limit>7</limit>
+</score>
+<!-- The control points below ensure that everyone from both teams is in their waiting box before starting a round. The last two decay when no one is in the field to permit capturing the waiting box control points. -->
+<control-points decay-rate="0" owned-decay-rate="10" neutral-state="true" show="false" points="0" required="false">
+    <control-point id="all-blue-in-waiting-box" capture-time="10s" capture="blue-waiting-box" player-filter="playing-field-not-occupied"/>
+    <control-point id="all-red-in-waiting-box" capture-time="10s" capture="red-waiting-box" player-filter="playing-field-not-occupied"/>
+    <control-point id="blue-in-playing-field" capture-time="0s" capture="outside-waiting-box" player-filter="only-blue"/>
+    <control-point id="red-in-playing-field" capture-time="0s" capture="outside-waiting-box" player-filter="only-red"/>
+</control-points>
+<!-- These portals teleport players to the waiting box at the end of a round, and then to the spawn point once the waiting box control points are captured. -->
+<portals sound="false" observers="never">
+    <portal forward="team-scored" filter="only-blue" destination="blue-pending-spawn" yaw="@-90"/>
+    <portal forward="team-scored" filter="only-red" destination="red-pending-spawn" yaw="@90"/>
+    <portal forward="waiting-boxes-occupied" filter="only-blue" destination="blue-spawn" yaw="@-90"/>
+    <portal forward="waiting-boxes-occupied" filter="only-red" destination="red-spawn" yaw="@90"/>
+</portals>
+<spawners>
+    <spawner max-entities="1" delay="7s">
+        <spawn-region>
+            <point>0,7.2,23</point>
+        </spawn-region>
+        <player-region>
+            <cylinder base="0,6,23" height="4" radius="2.5"/>
+        </player-region>
+        <item material="golden apple"/>
+    </spawner>
+    <spawner max-entities="1" delay="7s">
+        <spawn-region>
+            <point>0,10.2,-22</point>
+        </spawn-region>
+        <player-region>
+            <cylinder base="0,9,-22" height="4" radius="2.5"/>
+        </player-region>
+        <item material="golden apple"/>
+    </spawner>
+</spawners>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<itemkeep>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>golden apple</item>
+</itemkeep>
+<kill-reward>
+    <item material="golden apple"/>
+    <item amount="5" material="arrow"/>
+</kill-reward>
+<respawn auto="true" spectate="true" message="You will respawn when the round is over!"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>
